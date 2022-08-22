@@ -31,27 +31,3 @@ const dbFunction = async (dbName) => {
 
   dbFunction("puppyplaydates");
 
-// // Create a new MongoClient
-//     async function connectToCluster() {
-//         try {
-//             const dbName = 'puppyplaydates';
-//             const mongoClient = new MongoClient(uri , options);
-//             console.log('Connecting to MongoDB Atlas cluster...');
-//             await mongoClient.connect();
-//             const db = await client.db(dbName);
-//             console.log('Successfully connected to MongoDB Atlas!');
-    
-//             return db;
-//         } catch (error) {
-//             console.error('Connection to MongoDB Atlas failed!', error);
-//             process.exit();
-//         }
-//     }
-
-
-
-    // module.exports = {
-    //     connectToCluster
-    // }
-
-
