@@ -1,0 +1,29 @@
+[
+    {
+        "id": "01",
+        "eventName": "Puppy Cocktail",
+        "description": "Organic dog biscuits and a lot of fun. Everyone is ivited to meet other dogs and get a free sample of one of the most delicious and healthy biscuits in town from 'Billibone'!",
+        "eventDate": "1st of October 2022",
+        "eventPlace": "Parc Villeray dog park",
+        "address": "1250 Rue Jarry E, Montréal, QC H2P 1W",
+        "time" : "16:30"
+        },
+        {
+        "id": "02",
+        "eventName": "Puppy Pool Party Summer Event",
+        "description": "The event that everyone is talking about. From the same organizers of the festival 'Pet-A-Palooza', a unique pool party catered especially for dogs will feature a 120 ft long pool set up in Jarry Park Montreal.",
+        "eventDate": "September 18th, 2022",
+        "eventPlace": "Parc Jarry dog park",
+        "address": "1250 Rue Jarry E, Montréal, QC H2P 1W",
+        "time" : "From 11:00 to 18:30"
+        },
+        {
+        "id": "03",
+        "eventName": "Puppy Halloween Party",
+        "description": "Everyone is ivited! Bring your dogs with costumes and get ready for a professional photo for free! The picture will sent to your email after the event.",
+        "eventDate": "October 22, 2022",
+        "eventPlace": "Parc La Fontaine dog park",
+        "address": "3410 Av. Émile-Duployé, Montréal, QC H2L 3A7",
+        "time" : "15:30"
+    }
+]

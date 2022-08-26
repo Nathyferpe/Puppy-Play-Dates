@@ -3,7 +3,8 @@ require('dotenv').config()
 // Connection URI
 require("dotenv").config();
 const { MONGO_URI } = process.env;
-const users = require("./users.json");
+const events = require("./events.json");
+
 
 // const uri = process.env.MONGO_URL;
 const options = {
@@ -11,7 +12,7 @@ const options = {
     useUnifiedTopology: true,
 };
 
-const dbFunction = async (dbName) => {
+const dbFunctionEvents = async (puppyplaydates) => {
     // creates a new client
     const client = new MongoClient(MONGO_URI, options);
 
@@ -19,15 +20,17 @@ const dbFunction = async (dbName) => {
     await client.connect();
 
     // connect to the database (db name is provided as an argument to the function)
-    const db = client.db(dbName);
+    const db = client.db(puppyplaydates);
     console.log("connected!");
 
-    await db.collection("users").insertMany(users);
+    await db.collection("events").insertMany(events);
 
     // close the connection to the database server
     client.close();
     console.log("disconnected!");
-};
+    };
 
-// dbFunction("puppyplaydates");
+// dbFunctionEvents("puppyplaydates");
+
+
 
