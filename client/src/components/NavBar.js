@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PuppyPlayDateicon from "../assets/Global-images/PuppyPlayDateicon.jpg"
-
+import { HomeGridContext } from "./HomeGridContext";
 
 // import styled from "styled-components";
 
 const NavBar = () => {
+  const data = useContext(HomeGridContext);
+  const { isSignedIn, usersInfo, currentUser } = data;
     return (
         <Wrapper>
             <Nav>
-                <Link href="/">
+                <Link to="/">
                     <Logo></Logo>
                     </Link>
-                    <Link href="/">
+                    <Link to="/">
                         <h1 style={{textdecoration: 'none', width: 'max-content', color: 'white', margin: '0 0 0 100px'}}>Puppy Play Dates</h1>
                     </Link>
                 {/* <ul className="nav-links">
@@ -22,7 +24,14 @@ const NavBar = () => {
                 </ul> */}
             </Nav>
             <Nav>
+            {isSignedIn ? (
+        // <p>Howdy {firstName}</p>
+        <StyledNavLink to={`/users/${usersInfo.name}`}>
+          Welcome {currentUser.name}
+        </StyledNavLink>
+      ) : (
             <StyledNavLink to="/account"> Sign In </StyledNavLink>
+      )}
             </Nav>
         </Wrapper>
     );
