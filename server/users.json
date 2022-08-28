@@ -6,9 +6,9 @@
         "breed": "chihuahua",
         "description": "Chichi is a 2 years old fashionista. She loves to relax but also loves to play with other dog friends.",
         "friends": ["1007", "1008", "1009"],
-        "avatarUrl": "/images/profile-pics/Chichi.jpeg",
+        "avatarUrl": "images/profile-pics/Chichi.jpeg",
         "email": "chichi007puppies2gether.com",
-        "password" : ""
+        "password" : "chichi123"
         },
         {
         "id": "1007",
@@ -18,8 +18,8 @@
         "description": "Lola is a bernese mountain. She is the big tedy bear, loves to play with other dogs and she sleeps a lot.",
         "friends": ["1006", "1008", "1009"],
         "avatarUrl": "/images/profile-pics/Lola.jepg",
-        "email": "",
-        "password" : ""
+        "email": "lolalove@puppies2gether.com",
+        "password" : "lola4321"
         },
         {
         "id": "1008",
@@ -30,7 +30,7 @@
         "friends": ["1006", "1007", "1009"],
         "avatarUrl": "/images/profile-pics/Rocco.jpeg",
         "email": "roocoloco@puppies2gether.com",
-        "password" : ""
+        "password" : "roccoDog123"
         },
         {
         "id": "1009",
@@ -41,7 +41,7 @@
         "friends": ["1006", "1008", "1007"],
         "avatarUrl": "/images/profile-pics/Molly.jpeg",
         "email": "mollytheprincess@puppies2gether.com",
-        "password" : ""
+        "password" : "mollydog7"
         },
         {
         "id": "1013",
@@ -50,9 +50,9 @@
         "breed": "siberian husky",
         "description": "Rocky is a siberian husky who loves to play in the snow. He howls when music plays. He loves fetching the ball. ",
         "friends": ["1014", "1018", "1023"],
-        "avatarUrl": "/images/profile-pics/Rocky.jpg",
+        "avatarUrl": "/images/profile-pics/Rocky.jpeg",
         "email": "thesingerdog@puppies2gether.com",
-        "password" : ""
+        "password" : "singer007"
         },
         {
         "id": "1014",
@@ -62,8 +62,8 @@
         "description": "He is a 1 year old chihuahua full of energy. He love to run in circles in the park chasing other dogs. He thinks is a big dog.",
         "friends": ["1013", "1015", "1016", "1017"],
         "avatarUrl": "/images/profile-pics/Penauts.jpg",
-        "email": "",
-        "password" : ""
+        "email": "penauts@penauts.com",
+        "password" : "123penauts"
         },
         {
         "id": "1015",
@@ -72,9 +72,9 @@
         "breed": "labrador retriever",
         "description": "He is a playful dog. He love squickly toys and chew in 'Crocs' shoes. He is the King of his house.",
         "friends": ["1014", "1016", "1017"],
-        "avatarUrl": "/images/profile-pics/Floyd.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Floyd.jpeg",
+        "email": "floyd123",
+        "password" : "floyd@floyd.com"
         },
         {
         "id": "1016",
@@ -83,9 +83,9 @@
         "breed": "pincher",
         "description": "She loves to catch squirrels and play with other dogs.",
         "friends": ["1014", "1015", "1017"],
-        "avatarUrl": "/images/profile-pics/Trixie.jpg",
+        "avatarUrl": "/images/profile-pics/Trixie.jpeg",
         "email": "thesquirrelcatcher@puppies2gether.com",
-        "password" : ""
+        "password" : "trix000"
         },
         {
         "id": "1017",
@@ -94,9 +94,9 @@
         "breed": "chihuahua",
         "description": "He is a puppy who loves cuddles and barking to extrangers. He is learning to hang out with othe puppies.",
         "friends": ["1014", "1015", "1016"],
-        "avatarUrl": "/images/profile-pics/Payton.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Payton.jpeg",
+        "email": "paytonthecute@puppies2gether.com",
+        "password" : "payton098"
         },
         {
         "id": "1018",
@@ -105,9 +105,9 @@
         "breed": "pomeranian",
         "description": "She is 1 year old teacup pomeranian. She loves to travel with her 'hommans' around the world. She loves to play with other samall dogs. ",
         "friends": ["1013", "1019", "1020", "1021"],
-        "avatarUrl": "/images/profile-pics/Yoyo.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Yoyo.jpeg",
+        "email": "yoyo@puppies2gether.com",
+        "password" : "yoyo123"
         },
         {
         "id": "1019",
@@ -116,9 +116,9 @@
         "breed": "maltipoo",
         "description": "She is a tiny maltipoo. She loves to cuddle and play with small dogs.",
         "friends": ["1018", "1020", "1021"],
-        "avatarUrl": "/images/profile-pics/Chewie.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Chewie.jpeg",
+        "email": "chiwie@puppies2gether.com",
+        "password" : "chiwie654"
         },
         {
         "id": "1020",
@@ -127,9 +127,9 @@
         "breed": "puddle",
         "description": "She is 2 years old flufy royal puddle who loves to play in the park.",
         "friends": ["1019", "1018", "1021"],
-        "avatarUrl": "/images/profile-pics/Bella.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Bella.jpeg",
+        "email": "bella@puppies2gether.com",
+        "password" : "bella123"
         },
         {
         "id": "1021",
@@ -138,9 +138,9 @@
         "breed": "pincher",
         "description": "She is a runner. She loves to run with other dog at the park.",
         "friends": ["1019", "1020", "1018"],
-        "avatarUrl": "/images/profile-pics/Trixie.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Trixie.jpeg",
+        "email": "trixiethecute@puppies2gether.com",
+        "password" : "cute123"
         },
         {
         "id": "1022",
@@ -149,20 +149,20 @@
         "breed": "chihuahua",
         "description": "They are 2 playful chihuahua bothers. They love to run and play with other tiny dogs. They are small but with a big personality.",
         "friends": ["1023", "1024", "1025"],
-        "avatarUrl": "/images/profile-pics/Dali&Gaudi.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Dali&Gaudi.jpeg",
+        "email": "theartists@puppies2gether.com",
+        "password" : "theartists123"
         },
         {
         "id": "1023",
         "name": "Kiwi",
         "age": "5 years old",
         "breed": "chihuahua",
-        "description": "",
+        "description": "Kiwi is a very sassy chi!",
         "friends": ["1013", "1022", "1024", "1025"],
-        "avatarUrl": "/images/profile-pics/Kiwi.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Kiwi.jpeg",
+        "email": "kiwi@puppies2gether.com",
+        "password" : "kiwicute123"
         },
         {
         "id": "1024",
@@ -171,9 +171,9 @@
         "breed": "german shepherd",
         "description": "They are dad and son. Rambo is the 1 year old smart german shepherd. He loves to play tough of war and also loves to plays with his dad 'Zeus'.",
         "friends": ["1023", "1022", "1025"],
-        "avatarUrl": "/images/profile-pics/Rambo&Zeus.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Rambo&Zeus.jpeg",
+        "email": "rambo&zeus@puppies2gether.com",
+        "password" : "rambo123"
         },
         {
         "id": "1025",
@@ -182,9 +182,9 @@
         "breed": "french bulldog",
         "description": "Cotton loves to sleep.",
         "friends": ["1023", "1024", "1022"],
-        "avatarUrl": "/images/profile-pics/Cotton.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Cotton.webp",
+        "email": "cotton@puppies2gether.com",
+        "password" : "cotton123"
         },
         {
         "id": "1026",
@@ -193,9 +193,9 @@
         "breed": "french bulldog",
         "description": "'I love to sleep all day'. I need to exercise playing with other dogs.",
         "friends": ["1027", "1028", "1029"],
-        "avatarUrl": "/images/profile-pics/Kiwi.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Kiki.jpeg",
+        "email": "kiki@puppies2gether.com",
+        "password" : "kiki123"
         },
         {
         "id": "1027",
@@ -204,9 +204,9 @@
         "breed": "chihuahua",
         "description": "I love to cuddle and run in the park. I have a samll body but a big personality. ",
         "friends": ["1026", "1028", "1029"],
-        "avatarUrl": "/images/profile-pics/Pickles.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Pickles.jpeg",
+        "email": "pickles@puppies2gether.com",
+        "password" : "pickles321"
         },
         {
         "id": "1028",
@@ -215,9 +215,9 @@
         "breed": "rotwailer",
         "description": "Sky is a male sweat rotwailer. He love to fetch and run in the park. Also loves treats.",
         "friends": ["1027", "1026", "1029"],
-        "avatarUrl": "/images/profile-pics/Sky.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Sky.webp",
+        "email": "sky123@puppies2gether.com",
+        "password" : "sky321"
         },
         {
         "id": "1029",
@@ -226,32 +226,43 @@
         "breed": "pincher",
         "description": "I am a three-legged dog. I have no limits when playing is about. ",
         "friends": ["1027", "1028", "1026"],
-        "avatarUrl": "/images/profile-pics/TinTin.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/TinTin.jpeg",
+        "email": "tintin@puppies2gether.com",
+        "password" : "tintin123"
         },
         {
         "id": "1030",
         "name": "Titan",
         "age": "1 year old",
         "breed": "unknown",
-        "description": "",
+        "description": "I am cute pug.",
         "friends": ["1031", "1032"],
-        "avatarUrl": "/images/profile-pics/Titan.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Titan.webp",
+        "email": "titan@puppies2gether.com",
+        "password" : "titan123"
         },
         {
         "id": "1031",
-        "name": "Van Gogh",
+        "name": "Picasso",
         "age": "3 years old",
         "breed": "chihuahua",
         "description": "",
-        "friends": ["1030", "1032"],
-        "avatarUrl": "/images/profile-pics/Van-Gogh.jpg",
-        "email": "",
-        "password" : ""
+        "friends": ["1030", "1029", "1020"],
+        "avatarUrl": "/images/profile-pics/Picasso.jpg",
+        "email": "picasso@puppies2gether.com",
+        "password" : "picasso123"
         },
+        {
+            "id": "1033",
+            "name": "Van Gogh",
+            "age": "3 years old",
+            "breed": "chihuahua",
+            "description": "",
+            "friends": ["1030", "1032"],
+            "avatarUrl": "/images/profile-pics/Van-Gogh.jpeg",
+            "email": "vangogh@puppies2gether.com",
+            "password" : "vangogh123"
+            },
         {
         "id": "1032",
         "name": "Lucio",
@@ -259,8 +270,8 @@
         "breed": "doberman",
         "description": "",
         "friends": ["1031", "1030"],
-        "avatarUrl": "/images/profile-pics/Picasso.jpg",
-        "email": "",
-        "password" : ""
+        "avatarUrl": "/images/profile-pics/Lucio.jpeg",
+        "email": "lucioboy@puppies2gether.com",
+        "password" : "lucio1234"
     }
 ]
