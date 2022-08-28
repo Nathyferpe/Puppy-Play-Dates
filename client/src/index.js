@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { HomeGridPageProvider } from "./components/HomeGridContext"
 
 ReactDOM.render(
   <React.StrictMode>
+    <HomeGridPageProvider>
       <App />
+    </HomeGridPageProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
