@@ -129,11 +129,12 @@ const ProfilePageCreation = () => {
                   required
                 />
               </div>
-
+              <div>
               <button type="submit" className="global-btn">
                 Create Profile
               </button>
               <p>Already registered {""} login?</p>
+              </div>
 
               {/* {flag && (
                             <h1> fill out every field</h1>
