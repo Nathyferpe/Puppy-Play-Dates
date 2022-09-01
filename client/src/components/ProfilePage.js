@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";  
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import SubNav from "./SubNav";
 
 const ProfilePage = () => {
     const [currentUser, setCurrentUser] = useState([]);
@@ -18,13 +19,18 @@ const ProfilePage = () => {
         
 console.log('email', email);
 
+
+
     return (
         <Container>
+            <SubNav/>
             <Wrapper>
                 <img src={currentUser.avatarUrl} alt="user's profile" />
                 <p>{currentUser.name}</p>
+                <p>{currentUser.description}</p>
+                <p>{currentUser.description}</p>
             </Wrapper>  
-            <div> hello</div>
+            <div style= {{ background: "grey", color: "white"}}> This is a div Friends names or pic pupulating on a div </div>
         </Container>
     )
 };

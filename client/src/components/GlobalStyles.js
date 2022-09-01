@@ -134,9 +134,11 @@ button {
     width: 100%;
 }
 
+
+
 h2 {
   color: #2f3640;
- margin-bottom: 10px;
+ /* margin-bottom: 10px; */
  font-size: 32px;
  justify-content: center;
 

@@ -10,11 +10,10 @@ const ProfilePageCreation = () => {
   const [age, setAge] = useState("");
   const [email, setEmail] = useState("");
   const [breed, setBreed] = useState("");
-  const [password, setPasword] = useState("");
+  const [password, setPassword] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
-  // const [flag, setFlag]= useState(false);
-  const [login, setLogin] = useState(true);
-  const formData = { name, age, email, breed, description, avatarUrl };
+  
+  const formData = { name, age, email, breed, description, avatarUrl, password };
 
   const history = useHistory();
 
@@ -32,7 +31,7 @@ const ProfilePageCreation = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log("user longged in");
+        // console.log("user longged in");
         localStorage.setItem("email", email);
         history.push("/profile");
 
@@ -66,7 +65,6 @@ const ProfilePageCreation = () => {
               <div ClassName="form-group">
                 <label>Dog's name</label>
                 <input
-                  // ref={name}
                   type="text"
                   ClassName="form-control"
                   placeholder="Enter your dog's name"
@@ -77,7 +75,6 @@ const ProfilePageCreation = () => {
               <div ClassName="form-group">
                 <label>My Email</label>
                 <input
-                  // ref={email}
                   type="text"
                   ClassName="form-control"
                   placeholder="Enter your email"
@@ -86,9 +83,20 @@ const ProfilePageCreation = () => {
                 />
               </div>
               <div ClassName="form-group">
+                <label>Password</label>
+                <input
+                  type="text"
+                  ClassName="form-control"
+                  placeholder="Enter your password"
+                  onChange={(ev) => setPassword(ev.target.value)}
+                  required
+                />
+              </div>
+
+
+              <div ClassName="form-group">
                 <label>Description</label>
                 <input
-                  // ref={description}
                   type="text"
                   ClassName="form-control"
                   placeholder="Enter a short description of your dog."
@@ -99,7 +107,6 @@ const ProfilePageCreation = () => {
               <div ClassName="form-group">
                 <label>Dog's Age</label>
                 <input
-                  // ref={age}
                   type="text"
                   ClassName="form-control"
                   placeholder="Select the age of your dog."
@@ -110,7 +117,6 @@ const ProfilePageCreation = () => {
               <div ClassName="form-group">
                 <label>Dog's breed</label>
                 <input
-                  // ref={breed}
                   type="text"
                   ClassName="form-control"
                   placeholder="Select the breed of your dog."
@@ -121,7 +127,6 @@ const ProfilePageCreation = () => {
               <div ClassName="form-group">
                 <label>Dog's Pic</label>
                 <input
-                  // ref={avatarUrl}
                   type="file"
                   ClassName="form-control"
                   placeholder="Upload the Picture of your dog."

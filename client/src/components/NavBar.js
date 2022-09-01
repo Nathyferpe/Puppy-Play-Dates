@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import PuppyPlayDateicon from "../assets/Global-images/PuppyPlayDateicon.jpg"
+import PuppyPlayConnect from "../assets/Global-images/PuppyPlayConnect.png"
 import { HomeGridContext } from "./HomeGridContext";
 
 // import styled from "styled-components";
@@ -16,7 +16,7 @@ const NavBar = () => {
                     <Logo></Logo>
                     </Link>
                     <Link to="/">
-                        <h1 style={{textdecoration: 'none', width: 'max-content', color: 'white', margin: '0 0 0 100px'}}>Puppy Play Dates</h1>
+                        <h1 style={{textdecoration: 'none', width: 'max-content', color: 'white', margin: '0 0 0 100px'}}>Puppy Play Connect</h1>
                     </Link>
                 {/* <ul className="nav-links">
                     <li>Events</li>
@@ -25,7 +25,7 @@ const NavBar = () => {
             </Nav>
             <Nav>
             {isSignedIn ? (
-        // <p>Howdy {firstName}</p>
+        // <p>Welcome {firstName}</p>
         <StyledNavLink to={`/users/${usersInfo.name}`}>
           Welcome {currentUser.name}
         </StyledNavLink>
@@ -41,21 +41,24 @@ const Wrapper = styled.header`
     display: flex;
     justify-content: space-between;
     background: var(--color-purple);
-    height: 110px;
+    height: 95px;
     padding: var(--padding-page);
     justify-content: center;
+    /* position: fixed;
+    top: 0;
+    width: 100%; */
 `;
 
 const Logo = styled.div`
-  background-image: url(${PuppyPlayDateicon});
+  background-image: url(${PuppyPlayConnect});
   background-repeat: no-repeat;
   /* background-position: left center, right center; */
   background-size: contain;
   overflow: hidden;
   /* text-indent: -1000px; */
   /* margin: 0 100px 0 0 ; */
-  height: 60px;
-  width: 60px;
+  height: 90px;
+  width: 90px;
   margin: 0 100px 0 0;
 `;
 
@@ -69,7 +72,7 @@ const StyledNavLink = styled(Link)`
   background: var(--color-selective-yellow);
   border: 1px solid transparent;
   border-radius: 4px;
-  color: var(--color-blueberry-soda);
+  color: #4834d4;
   display: flex;
   justify-content: center;
   align-items: center;

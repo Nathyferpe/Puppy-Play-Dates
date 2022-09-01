@@ -9,11 +9,17 @@ import LoginPage from "./components/LoginPage";
 import ProfileFriend from "./components/ProfileFriend";
 import ProfilePage from "./components/ProfilePage"
 import Homegrid from "./components/Homegrid";
+import LoginButton from "./components/LoginButton";
+import LogoutButton from "./components/LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
 
+      // bring it from the auth hook
+    const { user, isAuthenticated } = useAuth0();
+
   const [users, setUsers] = useState([])
-  const [user, setUser] = useState('')
+  // const [user, setUser] = useState('')
 
   // test //
 
@@ -22,6 +28,12 @@ const App = () => {
   console.log("user id", userId);
 
   return (
+<>
+    <LoginButton/>
+    <LogoutButton/>
+
+    {/* isAuthenticated && ( */}
+
     <BrowserRouter>
       <GlobalStyles />
       <>
@@ -29,7 +41,7 @@ const App = () => {
         />
         <Switch>
           <Route exact path="/">
-            <Homepage user={user} users={users} setUsers={setUsers}/>
+            <Homepage />
           </Route>
           <Route exact path="/account/login">
             <LoginPage user={user} users={users} setUsers={setUsers}/>
@@ -52,6 +64,10 @@ const App = () => {
         </Switch>
       </>
     </BrowserRouter>
+    </>
+
+  // )
+
   );
 };
 

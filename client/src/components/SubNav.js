@@ -11,6 +11,9 @@ const SubNav = () => {
             <div style={{display: "flex", justifyContent: "center"}}>
                 <button style={{width: "200px"}}>Events</button>
             </div>
+            <div style={{display: "flex", justifyContent: "center"}}>
+                <button style={{width: "200px"}}>Add Friends</button>
+            </div>
     </div>
 
     );

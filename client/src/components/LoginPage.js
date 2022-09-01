@@ -1,40 +1,63 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import { HomeGridContext } from "./HomeGridContext";
+
+//What do I need to do fo the login???
+
+//When you create an account, your email and password get stored in a database.
+//When you try to log in after that, you're prompted to enter your username and password - if they match what's in the database, you're good to go.
 
 const LoginPage = () => {
-  const [inputValue, setInputValue] = useState("");
-  // const history = useHistory();
-  // const [errMessage, setErrMessage] = useState("");
-    // const [name, setName] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
-    const [user, setUser] = useState({name: "", email: "", password: ""})
+  const data = useContext(HomeGridContext);
+   ///form data dtored in Mongo
+  const formData = { email, password };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    // const history = useHistory();
+  const { users, setIsSignedIn, currentUser, setUsersInfo } = data;
+  const history = useHistory();
 
-    const handlerInput = (ev) => {
-      setInputValue(ev.target.value);
-    };
+ ///// get item by email also??
+
+    // fetch("/api/users/", {
+    //   method: "POST",
+    //   body: JSON.stringify(formData),
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+
+
+    // useEffect(() => {
+    //       fetch(`/api/users`)
+    //   .then((res) => res.json())
+    //   .then((json) => {
+    //     console.log("user longged in");
+    //     //get item by email & password?
+    //     localStorage.getItem("email", email);
+    //     history.push("/profile");
+
+    //   });
+
+    
+
+    // const handlerInput = (ev) => {
+    //   setInputValue(ev.target.value);
+    // };
 
     const handleSubmit = (ev) => {
         ev.preventDefault();
         
-
     
 
-        // useEffect(() => {
-        //   fetch(`/api/users`)
-        //       .then((res) => res.json())
-        //       .then((json) => {
-        //           setUsers(json.data);
-        //       });
-        //   }, []);
 
 
 
     }
+
 
     return (
       <DivWrapper>
@@ -57,25 +80,25 @@ const LoginPage = () => {
             <form
               onSubmit={handleSubmit}
             >
-              <div ClassName="form-group">
+              {/* <div ClassName="form-group">
                 <label>Dog's name</label>
                 <input
                   // ref={name}
                   type="text"
                   placeholder="Enter your dog's name"
-                   onChange={handlerInput}
-                  // onChange={(ev) => setName(ev.target.value)}
+                  //  onChange={handlerInput}
+                  onChange={(ev) => setName(ev.target.value)}
                   required
                 />
-              </div>
+              </div> */}
               <div ClassName="form-group">
                 <label>My Email</label>
                 <input
                   // ref={email}
                   type="text"
                   placeholder="Enter your email"
-                  onChange={handlerInput}
-                  // onChange={(ev) => setEmail(ev.target.value)}
+                  // onChange={handlerInput}
+                  onChange={(ev) => setEmail(ev.target.value)}
                   required
                 />
               </div>
@@ -85,8 +108,8 @@ const LoginPage = () => {
                   // ref={password}
                   type="text"
                   placeholder="Enter your password"
-                  onChange={handlerInput}
-                  // onChange={(ev) => setEmail(ev.target.value)}
+                  // onChange={handlerInput}
+                  onChange={(ev) => setPassword(ev.target.value)}
                   required
                 />
               </div>

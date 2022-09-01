@@ -1,0 +1,41 @@
+/* .app {
+    text-align: center;
+}
+
+.container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+} */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background: rgb(5, 5, 5);
+    color: white;
+    text-decoration: none ;
+}
+
+.nav-links {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+    
+ul {
+    list-style-type: none;
+    display: flex;
+    float: left;
+
+}
+.customer-hero__content {
+    left: 15%;
+    max-width: 25rem;
+    position: absolute;
+    top: 3.125rem;
+}

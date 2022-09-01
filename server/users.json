@@ -19,7 +19,9 @@
         "friends": ["1006", "1008", "1009"],
         "avatarUrl": "/images/profile-pics/Lola.jepg",
         "email": "lolalove@puppies2gether.com",
-        "password" : "lola4321"
+        "password" : "lola4321",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1008",
@@ -30,7 +32,9 @@
         "friends": ["1006", "1007", "1009"],
         "avatarUrl": "/images/profile-pics/Rocco.jpeg",
         "email": "roocoloco@puppies2gether.com",
-        "password" : "roccoDog123"
+        "password" : "roccoDog123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1009",
@@ -253,16 +257,16 @@
         "password" : "picasso123"
         },
         {
-            "id": "1033",
-            "name": "Van Gogh",
-            "age": "3 years old",
-            "breed": "chihuahua",
-            "description": "",
-            "friends": ["1030", "1032"],
-            "avatarUrl": "/images/profile-pics/Van-Gogh.jpeg",
-            "email": "vangogh@puppies2gether.com",
-            "password" : "vangogh123"
-            },
+        "id": "1033",
+        "name": "Van Gogh",
+        "age": "3 years old",
+        "breed": "chihuahua",
+        "description": "",
+        "friends": ["1030", "1032"],
+        "avatarUrl": "/images/profile-pics/Van-Gogh.jpeg",
+        "email": "vangogh@puppies2gether.com",
+        "password" : "vangogh123"
+        },
         {
         "id": "1032",
         "name": "Lucio",
