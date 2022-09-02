@@ -12,20 +12,18 @@ import Homegrid from "./components/Homegrid";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
-import InitialHomePage from "./components/InitialHomePage";
 
 const App = () => {
   const { isloading, error } = useAuth0;
 
-      // bring it from the auth hook
-    const { user, isAuthenticated } = useAuth0();
+  // bring it from the auth hook
+  const { user, isAuthenticated } = useAuth0();
 
   const [users, setUsers] = useState([])
   // const [user, setUser] = useState('')
  
-
   const [events, setEvents] = useState([])
-  // test //
+
 
   localStorage.setItem("userId", "123");
   const userId = localStorage.getItem("userId");
@@ -38,21 +36,20 @@ const App = () => {
     {!error && !isloading && (
 
     <>
-    <LoginButton/>
-    <LogoutButton/>
+    {/* <LoginButton/>
+    <LogoutButton/> */}
     </>
 )}
 
-    {/* <InitialHomePage/> */}
-    
-
-    {/* isAuthenticated && ( */}
 
     <BrowserRouter>
       <GlobalStyles />
       <>
         <NavBar 
         />
+
+{/* isAuthenticated && ( */}
+
         <Switch>
           <Route exact path="/">
             <Homepage />
