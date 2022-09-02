@@ -23,3 +23,11 @@
     color: #fdbb01;
 }
 
+.description-user {
+    width: 500px;
+    color: #dd216b;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-align: center;
+}

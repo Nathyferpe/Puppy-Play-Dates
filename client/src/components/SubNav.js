@@ -4,7 +4,7 @@ import GlobalStyles from "./GlobalStyles";
 const SubNav = () => {
 
     return (
-    <div style= {{display: "flex" }}>   
+    <div style= {{margin: 'auto'}}>   
             <div style={{display: "flex", justifyContent: "center"}}>
                     <button style={{width: "200px"}}>My Profile</button>
             </div>
