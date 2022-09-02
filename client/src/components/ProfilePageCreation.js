@@ -33,7 +33,7 @@ const ProfilePageCreation = () => {
       .then((json) => {
         // console.log("user longged in");
         localStorage.setItem("email", email);
-        history.push("/profile");
+        history.push(`/profile/${email}`);
 
       });
 
@@ -55,9 +55,7 @@ const ProfilePageCreation = () => {
               Create your dog profile
             </h2>
             <h3>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              sit amet dolor sit amet nisl pulvinar condimentum. Pellentesque
-              pellentesque volutpat.
+              Please create the Profile of your dog. We are waiting to connect with you. You have to sign up or login to be able to create your dog's profile. Click on the "Sign In" button and then you are ready to make new friends.
             </h3>
             <form
               onSubmit={handleSubmit}
@@ -72,7 +70,7 @@ const ProfilePageCreation = () => {
                   required
                 />
               </div>
-              {/* <div ClassName="form-group">
+              <div ClassName="form-group">
                 <label>My Email</label>
                 <input
                   type="text"
@@ -81,7 +79,7 @@ const ProfilePageCreation = () => {
                   onChange={(ev) => setEmail(ev.target.value)}
                   required
                 />
-              </div> */}
+              </div>
               {/* <div ClassName="form-group">
                 <label>Password</label>
                 <input
