@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PuppyPlayConnect from "../assets/Global-images/PuppyPlayConnect.png"
 import { HomeGridContext } from "./HomeGridContext";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "../components/LoginButton";
+import LogoutButton from "../components/LogoutButton";
+import Homepage from "./Homepage";
 
 // import styled from "styled-components";
 
 const NavBar = () => {
   const data = useContext(HomeGridContext);
-  const { isSignedIn, usersInfo, currentUser } = data;
+  // const { isSignedIn, usersInfo, currentUser } = data;
+  const { user, isAuthenticated } = useAuth0();
     return (
         <Wrapper>
             <Nav>
@@ -18,22 +23,16 @@ const NavBar = () => {
                     <Link to="/">
                         <h1 style={{textdecoration: 'none', width: 'max-content', color: 'white', margin: '0 0 0 100px'}}>Puppy Play Connect</h1>
                     </Link>
-                {/* <ul className="nav-links">
-                    <li>Events</li>
-                    <li>About us</li>
-                </ul> */}
             </Nav>
-            <Nav>
-            {isSignedIn ? (
-        // <p>Welcome {firstName}</p>
-        <StyledNavLink to={`/users/${usersInfo.name}`}>
-          Welcome {currentUser.name}
-        </StyledNavLink>
-      ) : (
-            <StyledNavLink to="/account"> Sign In </StyledNavLink>
-      )}
-            </Nav>
-        </Wrapper>
+            <>
+            <LoginButton/>
+            <LogoutButton/>
+            { isAuthenticated && ( 
+            <Homepage/>  
+            )}
+            </>
+            </Wrapper>
+    
     );
 };
 
