@@ -72,7 +72,7 @@ const ProfilePageCreation = () => {
                   required
                 />
               </div>
-              <div ClassName="form-group">
+              {/* <div ClassName="form-group">
                 <label>My Email</label>
                 <input
                   type="text"
@@ -81,8 +81,8 @@ const ProfilePageCreation = () => {
                   onChange={(ev) => setEmail(ev.target.value)}
                   required
                 />
-              </div>
-              <div ClassName="form-group">
+              </div> */}
+              {/* <div ClassName="form-group">
                 <label>Password</label>
                 <input
                   type="text"
@@ -91,7 +91,7 @@ const ProfilePageCreation = () => {
                   onChange={(ev) => setPassword(ev.target.value)}
                   required
                 />
-              </div>
+              </div> */}
 
 
               <div ClassName="form-group">
