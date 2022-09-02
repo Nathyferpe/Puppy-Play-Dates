@@ -8,7 +8,9 @@
         "friends": ["1007", "1008", "1009"],
         "avatarUrl": "images/profile-pics/Chichi.jpeg",
         "email": "chichi007puppies2gether.com",
-        "password" : "chichi123"
+        "password" : "chichi123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1007",
@@ -45,7 +47,9 @@
         "friends": ["1006", "1008", "1007"],
         "avatarUrl": "/images/profile-pics/Molly.jpeg",
         "email": "mollytheprincess@puppies2gether.com",
-        "password" : "mollydog7"
+        "password" : "mollydog7",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1013",
@@ -56,7 +60,9 @@
         "friends": ["1014", "1018", "1023"],
         "avatarUrl": "/images/profile-pics/Rocky.jpeg",
         "email": "thesingerdog@puppies2gether.com",
-        "password" : "singer007"
+        "password" : "singer007",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1014",
@@ -67,7 +73,9 @@
         "friends": ["1013", "1015", "1016", "1017"],
         "avatarUrl": "/images/profile-pics/Penauts.jpg",
         "email": "penauts@penauts.com",
-        "password" : "123penauts"
+        "password" : "123penauts",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1015",
@@ -78,7 +86,9 @@
         "friends": ["1014", "1016", "1017"],
         "avatarUrl": "/images/profile-pics/Floyd.jpeg",
         "email": "floyd123",
-        "password" : "floyd@floyd.com"
+        "password" : "floyd@floyd.com",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1016",
@@ -89,7 +99,9 @@
         "friends": ["1014", "1015", "1017"],
         "avatarUrl": "/images/profile-pics/Trixie.jpeg",
         "email": "thesquirrelcatcher@puppies2gether.com",
-        "password" : "trix000"
+        "password" : "trix000",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1017",
@@ -100,7 +112,9 @@
         "friends": ["1014", "1015", "1016"],
         "avatarUrl": "/images/profile-pics/Payton.jpeg",
         "email": "paytonthecute@puppies2gether.com",
-        "password" : "payton098"
+        "password" : "payton098",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1018",
@@ -111,7 +125,9 @@
         "friends": ["1013", "1019", "1020", "1021"],
         "avatarUrl": "/images/profile-pics/Yoyo.jpeg",
         "email": "yoyo@puppies2gether.com",
-        "password" : "yoyo123"
+        "password" : "yoyo123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1019",
@@ -122,7 +138,9 @@
         "friends": ["1018", "1020", "1021"],
         "avatarUrl": "/images/profile-pics/Chewie.jpeg",
         "email": "chiwie@puppies2gether.com",
-        "password" : "chiwie654"
+        "password" : "chiwie654",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1020",
@@ -133,7 +151,9 @@
         "friends": ["1019", "1018", "1021"],
         "avatarUrl": "/images/profile-pics/Bella.jpeg",
         "email": "bella@puppies2gether.com",
-        "password" : "bella123"
+        "password" : "bella123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1021",
@@ -144,7 +164,9 @@
         "friends": ["1019", "1020", "1018"],
         "avatarUrl": "/images/profile-pics/Trixie.jpeg",
         "email": "trixiethecute@puppies2gether.com",
-        "password" : "cute123"
+        "password" : "cute123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1022",
@@ -155,7 +177,9 @@
         "friends": ["1023", "1024", "1025"],
         "avatarUrl": "/images/profile-pics/Dali&Gaudi.jpeg",
         "email": "theartists@puppies2gether.com",
-        "password" : "theartists123"
+        "password" : "theartists123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1023",
@@ -166,7 +190,9 @@
         "friends": ["1013", "1022", "1024", "1025"],
         "avatarUrl": "/images/profile-pics/Kiwi.jpeg",
         "email": "kiwi@puppies2gether.com",
-        "password" : "kiwicute123"
+        "password" : "kiwicute123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1024",
@@ -177,7 +203,9 @@
         "friends": ["1023", "1022", "1025"],
         "avatarUrl": "/images/profile-pics/Rambo&Zeus.jpeg",
         "email": "rambo&zeus@puppies2gether.com",
-        "password" : "rambo123"
+        "password" : "rambo123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1025",
@@ -188,7 +216,9 @@
         "friends": ["1023", "1024", "1022"],
         "avatarUrl": "/images/profile-pics/Cotton.webp",
         "email": "cotton@puppies2gether.com",
-        "password" : "cotton123"
+        "password" : "cotton123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1026",
@@ -199,7 +229,9 @@
         "friends": ["1027", "1028", "1029"],
         "avatarUrl": "/images/profile-pics/Kiki.jpeg",
         "email": "kiki@puppies2gether.com",
-        "password" : "kiki123"
+        "password" : "kiki123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1027",
@@ -210,7 +242,9 @@
         "friends": ["1026", "1028", "1029"],
         "avatarUrl": "/images/profile-pics/Pickles.jpeg",
         "email": "pickles@puppies2gether.com",
-        "password" : "pickles321"
+        "password" : "pickles321",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1028",
@@ -221,7 +255,9 @@
         "friends": ["1027", "1026", "1029"],
         "avatarUrl": "/images/profile-pics/Sky.webp",
         "email": "sky123@puppies2gether.com",
-        "password" : "sky321"
+        "password" : "sky321",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1029",
@@ -232,7 +268,9 @@
         "friends": ["1027", "1028", "1026"],
         "avatarUrl": "/images/profile-pics/TinTin.jpeg",
         "email": "tintin@puppies2gether.com",
-        "password" : "tintin123"
+        "password" : "tintin123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1030",
@@ -243,7 +281,9 @@
         "friends": ["1031", "1032"],
         "avatarUrl": "/images/profile-pics/Titan.webp",
         "email": "titan@puppies2gether.com",
-        "password" : "titan123"
+        "password" : "titan123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1031",
@@ -254,7 +294,9 @@
         "friends": ["1030", "1029", "1020"],
         "avatarUrl": "/images/profile-pics/Picasso.jpg",
         "email": "picasso@puppies2gether.com",
-        "password" : "picasso123"
+        "password" : "picasso123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1033",
@@ -265,7 +307,9 @@
         "friends": ["1030", "1032"],
         "avatarUrl": "/images/profile-pics/Van-Gogh.jpeg",
         "email": "vangogh@puppies2gether.com",
-        "password" : "vangogh123"
+        "password" : "vangogh123",
+        "friendRequest" : [],
+        "pendingFriends" : []
         },
         {
         "id": "1032",
@@ -276,6 +320,8 @@
         "friends": ["1031", "1030"],
         "avatarUrl": "/images/profile-pics/Lucio.jpeg",
         "email": "lucioboy@puppies2gether.com",
-        "password" : "lucio1234"
+        "password" : "lucio1234",
+        "friendRequest" : [],
+        "pendingFriends" : []
     }
 ]
