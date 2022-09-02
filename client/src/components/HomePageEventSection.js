@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { HomeGridContext } from "./HomeGridContext";
 import eventBannerHomepage from "../assets/Global-images/eventBannerHomepage.jpg"
 
+
 const HomePageEventSection = () => {
     const data = useContext(HomeGridContext);
     // const [events, setEvents] = useState([])
@@ -37,7 +38,7 @@ const HomePageEventSection = () => {
                         </div>
                     </div>
                     <div>
-                    <StyledNavLink to="/account"> Sign In </StyledNavLink>
+                    {/* <StyledNavLink to="/account"> Create Profile </StyledNavLink> */}
                     </div>
                 </div>
                 </TextWrapper>
@@ -65,13 +66,14 @@ display: flex;
   /* flex-wrap: wrap; */
 justify-content: left;
 width: 70vw;
-border: white 2px solid;
+/* border: white 2px solid; */
 `;
 
 const StyledNavLink = styled(Link)`
     background: var(--color-selective-yellow);
     border: 1px solid transparent;
     border-radius: 4px;
+    font-weight: 900;
     color: #4834d4;
     display: flex;
     justify-content: center;
@@ -81,7 +83,7 @@ const StyledNavLink = styled(Link)`
     height: 42px;
     margin: 40px 0 40px 0;
     padding: 0 60px;
-    width: 190px;
+    width: 300px;
     text-decoration: none;
     transition: all ease 400ms;
 
