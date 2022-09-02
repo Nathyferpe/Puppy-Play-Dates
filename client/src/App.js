@@ -12,15 +12,19 @@ import Homegrid from "./components/Homegrid";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import InitialHomePage from "./components/InitialHomePage";
 
 const App = () => {
+  const { isloading, error } = useAuth0;
 
       // bring it from the auth hook
     const { user, isAuthenticated } = useAuth0();
 
   const [users, setUsers] = useState([])
   // const [user, setUser] = useState('')
+ 
 
+  const [events, setEvents] = useState([])
   // test //
 
   localStorage.setItem("userId", "123");
@@ -28,9 +32,19 @@ const App = () => {
   console.log("user id", userId);
 
   return (
-<>
+    <>
+    {error && <p>Authenticationn Failed</p>}
+    {!error && isloading && <p>Loading...</p>}
+    {!error && !isloading && (
+
+    <>
     <LoginButton/>
     <LogoutButton/>
+    </>
+)}
+
+    {/* <InitialHomePage/> */}
+    
 
     {/* isAuthenticated && ( */}
 
@@ -56,9 +70,9 @@ const App = () => {
             <ProfilePage />
           </Route>
           <Route exact path="/events">
-            <Events />
+            <Events evets={events} setEvents={setEvents}/>
           </Route>
-          <Route exact path="/users/:id">
+          <Route exact path="/users/friends">
             <ProfileFriend />
           </Route>
         </Switch>
