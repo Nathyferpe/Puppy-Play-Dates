@@ -1,0 +1,25 @@
+.btn {
+    background-color: var(--color-selective-yellow);
+    border: 1px solid #fdbb01;
+    color: #4834d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    height: 42px;
+    margin: 0 0 0 160px;
+    padding: 0 60px;
+    width: 100%;
+    text-decoration: none;
+    transition: all ease 400ms;
+    transition: background-color 0.4s, border 0.4s, color 0.4s;
+}
+
+
+.btn:hover {
+    border: 2px #fdbb01 2px;
+    background: transparent;
+    color: #fdbb01;
+}
+
