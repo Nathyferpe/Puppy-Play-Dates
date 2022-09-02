@@ -74,44 +74,6 @@ export default createGlobalStyle`
 }
 
 
-.btn:link,
-.btn:visited {
-    display: inline-block;
-    padding: 10px 30px;
-    font-weight: 300;
-    text-decoration: none;
-    color: #fff;
-    border-radius: 150px;
-    transition: background-color 0.2s, border 0.2s, color 0.2s;
-    margin-right: 15px;
-}
-
-.btn-full:link,
-.btn-full:visited {
-    background: #e67e22;
-    border: solid 1px #e67e22;
-    color: #fff;
-}
-.btn-ghost:link,
-.btn-ghost:visited {
-    border: solid 1px #e67e22;
-    color: #e67e22;   
-}
-
-.btn:hover,
-.btn:active {
-background: #d35400 }
-
-.btn-full:hover,
-.btn-full:active {
-    background: #d35400;
-}
-
-.btn-ghost:hover,
-.btn-ghost:active {
-    border: solid 1px #e67e22;
-    color: #fff;
-}
 
 button {
     background: var(--color-dogwood-rose);
@@ -129,7 +91,7 @@ button {
     padding: 0.9rem;
     text-decoration: none;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 6px;
     text-decoration: none;
     width: 100%;
 }
