@@ -4,19 +4,11 @@ import styled from "styled-components";
 import doglineupbanner from "../assets/Global-images/doglineupbanner.jpeg"
 import { Link } from "react-router-dom";
 import HomePageEventSection from "./HomePageEventSection";
-import { useAuth0 } from "@auth0/auth0-react";
+// import { useAuth0 } from "@auth0/auth0-react";
 
 const Homepage = () => {
 
-    // bring it from the auth hook
-    // const { user, isAuthenticated } = useAuth0();
-
     return (
-
-         // <LoginButton/>
-    // <LogoutButton/>
-
-        // isAuthenticated && (
 
         <div>
             <Banner>
