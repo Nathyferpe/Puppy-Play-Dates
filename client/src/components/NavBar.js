@@ -8,8 +8,6 @@ import LoginButton from "../components/LoginButton";
 import LogoutButton from "../components/LogoutButton";
 import Homepage from "./Homepage";
 
-// import styled from "styled-components";
-
 const NavBar = () => {
   const data = useContext(HomeGridContext);
   // const { isSignedIn, usersInfo, currentUser } = data;
@@ -24,14 +22,14 @@ const NavBar = () => {
                         <h1 style={{textdecoration: 'none', width: 'max-content', color: 'white', margin: '0 0 0 100px'}}>Puppy Play Connect</h1>
                     </Link>
             </Nav>
-            <>
-            <LoginButton/>
-            <LogoutButton/>
-            { isAuthenticated && ( 
-            <Homepage/>  
-            )}
-            </>
-            </Wrapper>
+            <div style={{marginLeft: "80px"}}>
+              <LoginButton/>
+              <LogoutButton/>
+                {/* { isAuthenticated && ( 
+                <Homepage/>  
+                )} */}
+            </div>
+        </Wrapper>
     
     );
 };
