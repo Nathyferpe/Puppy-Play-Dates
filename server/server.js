@@ -23,11 +23,15 @@ const upload = multer({ dest: 'uploads/' })
 
 
 const { 
+    getEventDetails,
     getAllUsersHandle,
     getUserByIdHandle,
     addUserHandle,
     userLoginHandle,
+    getAllEvents,
     handleRequestFriendship,
+    gettingFriendRequestFriendshipAcepted,
+    
 } = require("./handlers");
 
 app.use(morgan("tiny"))
@@ -69,15 +73,26 @@ app.patch("/api/friends/:userId/:friendId", handleRequestFriendship)
 
 //------------------------- display all the events -----------------------------//
 
-app.patch("/api/events", handleRequestFriendship)
+
+app.get("/api/events", getAllEvents)
+
+//--------------------------HANDLES request frienship Accepted------------------//
+
+app.patch("/api/friends/accept/:userId/:friendId", gettingFriendRequestFriendshipAcepted)
+
+//---------------------------get 1 event by id--------------------------------//
 
 
-
-// app.post("/api/events", addEventHandle)
+app.get("/api/events/:id", getEventDetails)
 
 
 
 // --------------------------handle 404s--------------------------//
+
+// app.get("/api/ "  , gettingFriendRequestFriendshipAcepted)
+
+
+
 
 
 //----------------------------post/upload img --------------------//
