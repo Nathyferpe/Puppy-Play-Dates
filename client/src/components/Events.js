@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import doglineupbanner from "../assets/Global-images/doglineupbanner.jpeg"
+import doglineupbanner from "../assets/Global-images/doglineupbanner.jpeg";
+// import { data } from ''
+
 
 const Events = () => {
+    // const { events, setEvents } = data;
+
+
+    // useEffect(() => {
+    //     fetch(`/api/events`)
+    //         .then((res) => res.json())
+    //         .then((json) => {
+    //             setEvents(json.data);
+    //         });
+    //     }, []);
+
     return (
         <div>
             
@@ -30,4 +43,5 @@ const Banner = styled.div`
 const WrapperEvents = styled.div`
 display: flex;
 `;
+
 export default Events;
