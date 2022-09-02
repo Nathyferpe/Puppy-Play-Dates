@@ -9,17 +9,17 @@ const HomePageEventSection = () => {
     const data = useContext(HomeGridContext);
     // const [events, setEvents] = useState([])
 
-    const { events, setEvents } = data;
+    // const { events, setEvents } = data;
 
-    useEffect(() => {
-        fetch("/api/events")
-            .then((res) => res.json())
-            .then((json) => {
-                setEvents(json.data);
-            });
-        }, []);
+    // useEffect(() => {
+    //     fetch("/api/events")
+    //         .then((res) => res.json())
+    //         .then((json) => {
+    //             setEvents(json.data);
+    //         });
+    //     }, []);
 
-        console.log("events", events)
+        // console.log("events", events)
 
     return (
         <div>
@@ -31,7 +31,7 @@ const HomePageEventSection = () => {
                         <h2 style={{color: '#8c7ae6'}}>We are have organized 3 Events in the upcoming days. </h2>
                         <h3 style={{color: '#8c7ae6', marginTop: '40px'}}>To participate please Sign In be part of this amazing community.</h3>
                         <div style={{display: "flex", marginTop: '40px'}}>
-                            <h3 style={{color: '#8c7ae6'}}>{events}</h3>
+                            {/* <h3 style={{color: '#8c7ae6'}}>{events}</h3> */}
                             <h3 style={{color: '#8c7ae6'}}>Event 2</h3>
                             <h3 style={{color: '#8c7ae6'}}>Event 3</h3>
                         </div>
