@@ -39,7 +39,7 @@ const getAllUsersHandle = async (req, res) => {
   }
 };
 
-// GET user based on :email
+// ----------------------------------------------GET user based on :email--------------------------------------------//
 
 const getUserByIdHandle = async (req, res) => {
   const { email } = req.params;
@@ -61,7 +61,7 @@ const getUserByIdHandle = async (req, res) => {
   }
 };
 
-//---------------------------User need to register /sign-in --------------------------------//
+//-------------------------------------------------------User need to register /sign-in --------------------------------//
 
 const addUserHandle = async (req, res) => {
   const { name, email, avatarUrl, age, description, password } = req.body;
@@ -94,8 +94,32 @@ const addUserHandle = async (req, res) => {
   }
 };
 
-//-------------Authentication login ------------------------//
-//--------------get them by email??? ---------------------------///
+
+//----------------------------------------------------------Get all events----------------------------------------------------//
+
+const getAllEvents = async (req, res) => {
+  console.log("CAN I SEE THIS?");
+  const client = new MongoClient(MONGO_URI, options);
+  await client.connect();
+  const db = client.db("puppyplaydates");
+  const allEvents = await db.collection("events").find().toArray();
+  console.log(events);
+  client.close();
+
+  try {
+    if (allEvents.length > 0) {
+      return res.status(200).json({ status: 200, data: allEvents });
+    } else {
+      return res.status(404).json({ status: 404, message: "no data" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+
+//------------------------------------------------------------Authentication login ----------------------------------------------//
+
 
 //FIX THE END POINT!!!
 
@@ -142,37 +166,21 @@ const userLoginHandle = async (req, res) => {
   }
 };
 
-// -----------------------------------get an event-----------------------------------------------------------------------//
-//--------------------------------------eneter user name into an array in the event object-------------------------------//
-////Maybe is better to post my info in the event ...invyecting my id in and array (PATCH) attendance by id
+// -------------------------------------------------Get event by ID ----------------------------------------------------------------------//
+
 
 const getEventDetails = async (req, res) => {
-  const { id, eventName, eventPlace, time } = req.params;
-
-  res.json({
-    id,
-    eventName,
-    eventPlace,
-    time,
-  });
-
-  const eventDetails = {
-    id: uuidv4(),
-    ...req.body,
-  };
-
+  const { id } = req.params;
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();
   const db = client.db("puppyplaydates");
-  const getEventInformation = await db
-    .collection("events")
-    .findOne({ eventDetails });
-  console.log(eventDetails);
+  const oneEvent = await db.collection("events").findOne({ id });
+  console.log(oneEvent);
   client.close();
 
   try {
-    if (getEventInformation) {
-      return res.status(200).json({ status: 200, data: getEventInformation });
+    if (oneEvent) {
+      return res.status(200).json({ status: 200, data: oneEvent });
     } else {
       return res.status(404).json({ status: 404, message: "no data" });
     }
@@ -181,15 +189,15 @@ const getEventDetails = async (req, res) => {
   }
 };
 
-//--------------------------------------------------add Friends-----------------------------------------------------//
+//--------------------------------------------------add Friends---------------------------------------------------------------//
 /// PATCH ----
 // Needs 2 PEOPLE TO BE FRIENDS
 // PATCH. requires the ids of 2 people to make them friends . Accepts 2 properties: the body id of my friend (user1) and my body id of (user 2)
-// ids should be sent along as an array called newFriends in the body
+// ids should be sent along as an array called newFriends in the body (Maybe)
 
 const handleRequestFriendship = async (req, res) => {
   const { userId, friendId } = req.params;
-  console.log("UserId", userId);
+  // console.log("UserId", userId);
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();
   const db = client.db("puppyplaydates");
@@ -206,11 +214,82 @@ const handleRequestFriendship = async (req, res) => {
       },
   };
 
-
-
   await db.collection("users").updateOne( filter, updateDoc );
 
+
+
+const futureFriend = await db.collection("users").findOne({ id: friendId });
+futureFriend.friendRequest.push(userId);
+
+const filterOfFriends = {id: friendId }
+const updateDocFriendRequest = {
+  $set: {
+  friendRequest: futureFriend.friendRequest
+  },
+
+};
+
+await db.collection("users").updateOne( filterOfFriends, updateDocFriendRequest );
+
+
+
   client.close();
+
+  if (currentUser && futureFriend ) {
+    return res.status(200).json({ status: 200, data: {currentUser, futureFriend} });
+  } else {
+    return res.status(404).json({ status: 404, message: "no data" });
+  }
+
+
+};
+
+
+  //the friendId (future friend) have received and acepted my request i have to get it from the "pending friends"[] to "friends[]"
+
+  const gettingFriendRequestFriendshipAcepted = async (req, res) => {
+    const { userId, friendId } = req.params;
+    const client = new MongoClient(MONGO_URI, options);
+    await client.connect();
+    const db = client.db("puppyplaydates");
+    const possibleFriend = await db.collections('users').findOne( { id: friendId });
+    possibleFriend.friends.push(userId);
+    const newFriendRequestArray = possibleFriend.friendRequest.filter(( id ) => id !== userId)
+
+
+    const filterOfFriends = {id: friendId }
+    const updateDocFriendRequest = {
+      $set: {
+      friends: possibleFriend.friends,
+      friendRequest: newFriendRequestArray,
+      },
+      
+    }
+
+    await db.collection("users").updateOne( filterOfFriends, updateDocFriendRequest );
+
+    const acceptedFriend = await db.collections('users').findOne( { id: userId });
+    acceptedFriend.friends.push(friendId);
+    const newPendingFriendReadytoBeAcepted = acceptedFriend.pendingFriends.filter(( id ) => id !== friendId)
+
+// update the the document for user number 1
+
+const filterOfNewFriends = {id: userId }
+const updateDocacceptFriendRequest = {
+  $set: {
+  friends: acceptedFriend.friends,
+  friendRequest: newPendingFriendReadytoBeAcepted,
+  },
+
+}
+
+// send it to mongo
+
+await db.collection("users").updateOne( filterOfNewFriends , updateDocacceptFriendRequest );
+
+  client.close();
+
+  // add both users in the response object .
 
   if (currentUser) {
     return res.status(200).json({ status: 200, data: currentUser });
@@ -218,38 +297,18 @@ const handleRequestFriendship = async (req, res) => {
     return res.status(404).json({ status: 404, message: "no data" });
   }
 
-    client.close();
-  //Use my friend id to find the object
-  // const user1 = findUser(user, userId1);
-  // const user2 = findUser(user, userId2);
 
-  //and add my new friend into my array of friends:
+  };
 
-  // // if either of the userIds don't exist, stop and return error
-  // if (!user1 || !user2)
-  // return sendResponse(
-  //     res,
-  //     404,
-  //     req.body,
-  //     "One or both of the users not found."
-  // );
 
-  // const userIdx_1 = findUserIndex(user, userId1);
-  // const userIdx_2 = findUserIndex(user, userId2);
-};
-
-//-----------------------------------------------Add my name to the event ------------------------------------------------------//
-// post///
-// find one event
-//inyect my id into the event page ( listofatendance by id) Populating on my event page
-
-//------------------------------------------Inyect event(in data base?) which doc?--------------------------------//
 
 module.exports = {
+  getAllEvents,
   getEventDetails,
   getAllUsersHandle,
   getUserByIdHandle,
   addUserHandle,
   userLoginHandle,
   handleRequestFriendship,
+  gettingFriendRequestFriendshipAcepted,
 };
