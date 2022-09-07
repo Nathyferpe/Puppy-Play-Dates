@@ -12,14 +12,21 @@ const ProfilePageCreation = () => {
   const [breed, setBreed] = useState("");
   const [password, setPassword] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
-  
-  const formData = { name, age, email, breed, description, avatarUrl, password };
+
+  const formData = {
+    name,
+    age,
+    email,
+    breed,
+    description,
+    avatarUrl,
+    password,
+  };
 
   const history = useHistory();
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
- 
 
     fetch("/api/users/", {
       method: "POST",
@@ -34,9 +41,7 @@ const ProfilePageCreation = () => {
         // console.log("user longged in");
         localStorage.setItem("email", email);
         history.push(`/profile/${email}`);
-
       });
-
   };
 
   return (
@@ -47,22 +52,26 @@ const ProfilePageCreation = () => {
           <Banner>
             <div className="customer-hero-content">
               <h2 style={{ color: "#8c7ae6" }}>Welcome</h2>
-              <h3>Join the awesome group of Puppy Play Dates </h3>
+              <h3 style={{ lineHeight: "1.2" }}>
+                Join the awesome group of Puppy Play Dates{" "}
+              </h3>
             </div>
           </Banner>
           <FormUser>
             <h2 style={{ color: "#8c7ae6", textAlign: "center" }}>
               Create your dog profile
             </h2>
-            <h3>
-              Please create the Profile of your dog. We are waiting to connect with you. You have to sign up or login to be able to create your dog's profile. Click on the "Sign In" button and then you are ready to make new friends.
+            <h3 style={{ marginTop: "20px", lineHeight: "1.2" }}>
+              Please create the Profile of your dog. We are waiting to connect
+              with you. You have to sign up or login to be able to create your
+              dog's profile. Click on the "Sign In" button and then you are
+              ready to make new friends.
             </h3>
-            <form
-              onSubmit={handleSubmit}
-            >
+            <form onSubmit={handleSubmit}>
               <div ClassName="form-group">
-                <label>Dog's name</label>
+                <label style={{ display: "flex" }}>Dog's name</label>
                 <input
+                  style={{ display: "flex" }}
                   type="text"
                   ClassName="form-control"
                   placeholder="Enter your dog's name"
@@ -71,8 +80,9 @@ const ProfilePageCreation = () => {
                 />
               </div>
               <div ClassName="form-group">
-                <label>My Email</label>
+                <label style={{ display: "flex" }}>My Email</label>
                 <input
+                  style={{ display: "flex" }}
                   type="text"
                   ClassName="form-control"
                   placeholder="Enter your email"
@@ -80,21 +90,10 @@ const ProfilePageCreation = () => {
                   required
                 />
               </div>
-              {/* <div ClassName="form-group">
-                <label>Password</label>
-                <input
-                  type="text"
-                  ClassName="form-control"
-                  placeholder="Enter your password"
-                  onChange={(ev) => setPassword(ev.target.value)}
-                  required
-                />
-              </div> */}
-
-
               <div ClassName="form-group">
-                <label>Description</label>
+                <label style={{ display: "flex" }}>Description</label>
                 <input
+                  style={{ display: "flex" }}
                   type="text"
                   ClassName="form-control"
                   placeholder="Enter a short description of your dog."
@@ -103,8 +102,9 @@ const ProfilePageCreation = () => {
                 />
               </div>
               <div ClassName="form-group">
-                <label>Dog's Age</label>
+                <label style={{ display: "flex" }}>Dog's Age</label>
                 <input
+                  style={{ display: "flex" }}
                   type="text"
                   ClassName="form-control"
                   placeholder="Select the age of your dog."
@@ -113,8 +113,9 @@ const ProfilePageCreation = () => {
                 />
               </div>
               <div ClassName="form-group">
-                <label>Dog's breed</label>
+                <label style={{ display: "flex" }}>Dog's breed</label>
                 <input
+                  style={{ display: "flex" }}
                   type="text"
                   ClassName="form-control"
                   placeholder="Select the breed of your dog."
@@ -123,8 +124,9 @@ const ProfilePageCreation = () => {
                 />
               </div>
               <div ClassName="form-group">
-                <label>Dog's Pic</label>
+                <label style={{ display: "flex" }}>Dog's Pic</label>
                 <input
+                  style={{ border: "none", display: "flex" }}
                   type="file"
                   ClassName="form-control"
                   placeholder="Upload the Picture of your dog."
@@ -133,10 +135,10 @@ const ProfilePageCreation = () => {
                 />
               </div>
               <div>
-              <button type="submit" className="global-btn">
-                Create Profile
-              </button>
-              <p>Already registered {""} login?</p>
+                <button type="submit" className="global-btn">
+                  Create Profile
+                </button>
+                <p>Already registered {""} login?</p>
               </div>
 
               {/* {flag && (
@@ -165,6 +167,7 @@ const DivWrapper = styled.div`
 const Article = styled.article`
   display: flex;
   justify-content: center;
+  margin-top: 50px;
 `;
 
 const FormUser = styled.div`
