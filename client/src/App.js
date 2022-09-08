@@ -7,7 +7,7 @@ import ProfilePageCreation from "./components/ProfilePageCreation";
 import GlobalStyles from "./components/GlobalStyles";
 import LoginPage from "./components/LoginPage";
 import ProfileFriend from "./components/ProfileFriend";
-import ProfilePage from "./components/ProfilePage"
+import ProfilePage from "./components/ProfilePage";
 import Homegrid from "./components/Homegrid";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
@@ -19,11 +19,10 @@ const App = () => {
   // bring it from the auth hook
   const { user, isAuthenticated } = useAuth0();
 
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState([]);
   // const [user, setUser] = useState('')
- 
-  const [events, setEvents] = useState([])
 
+  const [events, setEvents] = useState([]);
 
   localStorage.setItem("userId", "123");
   const userId = localStorage.getItem("userId");
@@ -31,54 +30,50 @@ const App = () => {
 
   return (
     <>
-    {error && <p>Authenticationn Failed</p>}
-    {!error && isloading && <p>Loading...</p>}
-    {!error && !isloading && (
-
-    <>
-    {/* <LoginButton/>
+      {error && <p>Authenticationn Failed</p>}
+      {!error && isloading && <p>Loading...</p>}
+      {!error && !isloading && (
+        <>
+          {/* <LoginButton/>
     <LogoutButton/> */}
-    </>
-)}
+        </>
+      )}
 
+      <BrowserRouter>
+        <GlobalStyles />
+        <>
+          <NavBar />
 
-    <BrowserRouter>
-      <GlobalStyles />
-      <>
-        <NavBar 
-        />
+          {/* isAuthenticated && ( */}
 
-{/* isAuthenticated && ( */}
-
-        <Switch>
-          <Route exact path="/">
-            <Homepage />
-          </Route>
-          <Route exact path="/account/login">
-            <LoginPage user={user} users={users} setUsers={setUsers}/>
-          </Route>
-          <Route exact path="/account">
-            <ProfilePageCreation />
-          </Route>
-          <Route exact path="/homegrid">
-          <Homegrid/>
-          </Route>
-          <Route exact path="/profile/:email">
-            <ProfilePage />
-          </Route>
-          <Route exact path="/events">
-            <Events evets={events} setEvents={setEvents}/>
-          </Route>
-          <Route exact path="/users/friends">
-            <ProfileFriend />
-          </Route>
-        </Switch>
-      </>
-    </BrowserRouter>
+          <Switch>
+            <Route exact path="/">
+              <Homepage />
+            </Route>
+            <Route exact path="/account/login">
+              <LoginPage user={user} users={users} setUsers={setUsers} />
+            </Route>
+            <Route exact path="/account">
+              <ProfilePageCreation />
+            </Route>
+            <Route exact path="/homegrid">
+              <Homegrid />
+            </Route>
+            <Route exact path="/profile/:email">
+              <ProfilePage />
+            </Route>
+            <Route exact path="/events">
+              <Events evets={events} setEvents={setEvents} />
+            </Route>
+            <Route exact path="/usersId/:id">
+              <ProfileFriend />
+            </Route>
+          </Switch>
+        </>
+      </BrowserRouter>
     </>
 
-  // )
-
+    // )
   );
 };
 
