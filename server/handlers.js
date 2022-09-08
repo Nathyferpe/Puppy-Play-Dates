@@ -41,7 +41,7 @@ const getAllUsersHandle = async (req, res) => {
 
 // ----------------------------------------------GET user based on :email--------------------------------------------//
 
-const getUserByIdHandle = async (req, res) => {
+const getUserByEmailHandle = async (req, res) => {
   const { email } = req.params;
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();
@@ -49,7 +49,27 @@ const getUserByIdHandle = async (req, res) => {
   const user = await db.collection("users").findOne({ email });
   console.log(user);
   client.close();
+  try {
+    if (user) {
+      return res.status(200).json({ status: 200, data: user });
+    } else {
+      return res.status(404).json({ status: 404, message: "no data" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
 
+//-----------------------------------------------------------get user by id ------------------------------------------------//
+
+const getUserByIdHandle = async (req, res) => {
+  const { id } = req.params;
+  const client = new MongoClient(MONGO_URI, options);
+  await client.connect();
+  const db = client.db("puppyplaydates");
+  const user = await db.collection("users").findOne({ id });
+  console.log(user);
+  client.close();
   try {
     if (user) {
       return res.status(200).json({ status: 200, data: user });
@@ -94,7 +114,6 @@ const addUserHandle = async (req, res) => {
   }
 };
 
-
 //----------------------------------------------------------Get all events----------------------------------------------------//
 
 const getAllEvents = async (req, res) => {
@@ -117,9 +136,7 @@ const getAllEvents = async (req, res) => {
   }
 };
 
-
 //------------------------------------------------------------Authentication login ----------------------------------------------//
-
 
 //FIX THE END POINT!!!
 
@@ -168,7 +185,6 @@ const userLoginHandle = async (req, res) => {
 
 // -------------------------------------------------Get event by ID ----------------------------------------------------------------------//
 
-
 const getEventDetails = async (req, res) => {
   const { id } = req.params;
   const client = new MongoClient(MONGO_URI, options);
@@ -205,107 +221,109 @@ const handleRequestFriendship = async (req, res) => {
   console.log(currentUser);
   currentUser.pendingFriends.push(friendId);
 
-
-
-  const filter = { id: userId }
+  const filter = { id: userId };
   const updateDoc = {
-      $set: {
-      pendingFriends: currentUser.pendingFriends
-      },
+    $set: {
+      pendingFriends: currentUser.pendingFriends,
+    },
   };
 
-  await db.collection("users").updateOne( filter, updateDoc );
+  await db.collection("users").updateOne(filter, updateDoc);
 
+  const futureFriend = await db.collection("users").findOne({ id: friendId });
+  futureFriend.friendRequest.push(userId);
 
+  const filterOfFriends = { id: friendId };
+  const updateDocFriendRequest = {
+    $set: {
+      friendRequest: futureFriend.friendRequest,
+    },
+  };
 
-const futureFriend = await db.collection("users").findOne({ id: friendId });
-futureFriend.friendRequest.push(userId);
-
-const filterOfFriends = {id: friendId }
-const updateDocFriendRequest = {
-  $set: {
-  friendRequest: futureFriend.friendRequest
-  },
-
-};
-
-await db.collection("users").updateOne( filterOfFriends, updateDocFriendRequest );
-
-
+  await db
+    .collection("users")
+    .updateOne(filterOfFriends, updateDocFriendRequest);
 
   client.close();
 
-  if (currentUser && futureFriend ) {
-    return res.status(200).json({ status: 200, data: {currentUser, futureFriend} });
+  if (currentUser && futureFriend) {
+    return res
+      .status(200)
+      .json({ status: 200, data: { currentUser, futureFriend } });
   } else {
     return res.status(404).json({ status: 404, message: "no data" });
   }
-
-
 };
 
+//the friendId (future friend) have received and acepted my request i have to get it from the "pending friends"[] to "friends[]"
 
-  //the friendId (future friend) have received and acepted my request i have to get it from the "pending friends"[] to "friends[]"
+const gettingFriendRequestFriendshipAcepted = async (req, res) => {
+  const { userId, friendId } = req.params;
 
-  const gettingFriendRequestFriendshipAcepted = async (req, res) => {
-    const { userId, friendId } = req.params;
-    const client = new MongoClient(MONGO_URI, options);
-    await client.connect();
-    const db = client.db("puppyplaydates");
-    const possibleFriend = await db.collections('users').findOne( { id: friendId });
-    possibleFriend.friends.push(userId);
-    const newFriendRequestArray = possibleFriend.friendRequest.filter(( id ) => id !== userId)
+  console.log("friendId", friendId);
+  const client = new MongoClient(MONGO_URI, options);
+  await client.connect();
+  const db = client.db("puppyplaydates");
+  const possibleFriend = await db.collection("users").findOne({ id: friendId });
+  possibleFriend.friends.push(userId);
+  const newFriendRequestArray = possibleFriend.friendRequest.filter(
+    (id) => id !== userId
+  );
 
-
-    const filterOfFriends = {id: friendId }
-    const updateDocFriendRequest = {
-      $set: {
+  const filterOfFriends = { id: friendId };
+  const updateDocFriendRequest = {
+    $set: {
       friends: possibleFriend.friends,
       friendRequest: newFriendRequestArray,
-      },
-      
-    }
+    },
+  };
 
-    await db.collection("users").updateOne( filterOfFriends, updateDocFriendRequest );
+  await db
+    .collection("users")
+    .updateOne(filterOfFriends, updateDocFriendRequest);
 
-    const acceptedFriend = await db.collections('users').findOne( { id: userId });
-    acceptedFriend.friends.push(friendId);
-    const newPendingFriendReadytoBeAcepted = acceptedFriend.pendingFriends.filter(( id ) => id !== friendId)
+  const acceptedFriend = await db.collection("users").findOne({ id: userId });
+  acceptedFriend.friends.push(friendId);
+  const newPendingFriendReadytoBeAcepted = acceptedFriend.pendingFriends.filter(
+    (id) => id !== friendId
+  );
 
-// update the the document for user number 1
+  // update the the document for user number 1
 
-const filterOfNewFriends = {id: userId }
-const updateDocacceptFriendRequest = {
-  $set: {
-  friends: acceptedFriend.friends,
-  friendRequest: newPendingFriendReadytoBeAcepted,
-  },
+  const filterOfNewFriends = { id: userId };
+  const updateDocacceptFriendRequest = {
+    $set: {
+      friends: acceptedFriend.friends,
+      friendRequest: newPendingFriendReadytoBeAcepted,
+    },
+  };
 
-}
+  // send it to mongo
 
-// send it to mongo
-
-await db.collection("users").updateOne( filterOfNewFriends , updateDocacceptFriendRequest );
+  await db
+    .collection("users")
+    .updateOne(filterOfNewFriends, updateDocacceptFriendRequest);
 
   client.close();
 
   // add both users in the response object .
 
-  if (currentUser) {
-    return res.status(200).json({ status: 200, data: currentUser });
+  if (possibleFriend && acceptedFriend) {
+    return res
+      .status(200)
+      .json({ status: 200, data: possibleFriend, acceptedFriend });
   } else {
     return res.status(404).json({ status: 404, message: "no data" });
   }
+};
 
-
-  };
-
-
+//---------------------------------- getting friends users from user's array ----------------------------------//
 
 module.exports = {
   getAllEvents,
   getEventDetails,
   getAllUsersHandle,
+  getUserByEmailHandle,
   getUserByIdHandle,
   addUserHandle,
   userLoginHandle,
