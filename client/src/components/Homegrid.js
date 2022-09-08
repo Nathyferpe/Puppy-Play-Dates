@@ -4,18 +4,17 @@ import { HomeGridContext } from "./HomeGridContext";
 import { Link } from "react-router-dom";
 // import SubNav from "./SubNav";
 
-
 const Homegrid = () => {
   const data = useContext(HomeGridContext);
-  
+
   // i need the users data (Coming form HomeGridContext):
   const { users } = data;
-// const [users, setUsers] = useState([])
+  // const [users, setUsers] = useState([])
 
-//Friends 
-// const [friendIds, setFriendIds] = useState([])
+  //Friends
+  // const [friendIds, setFriendIds] = useState([])
 
-// I Passed the hook to Homegrid context to have access to it:
+  // I Passed the hook to Homegrid context to have access to it:
   // useEffect(() => {
   //   fetch(`/api/users/`)
   //     .then((res) => res.json())
@@ -25,16 +24,17 @@ const Homegrid = () => {
   //     });
   // }, []);
 
-
-  console.log("users", users)
+  console.log("users", users);
   return (
-  <Wrapper>
-      <h1>Add me to connect!</h1>
-    {/* <SubNav/> */}
+    <Wrapper>
+      <h1 style={{ marginTop: "40px", marginBottom: "40px" }}>
+        Add me to connect!
+      </h1>
+      {/* <SubNav/> */}
       <AllImages>
         {users.map((listOfUsers, idx) => (
           <li key={idx}>
-            <Link to={`/users/${listOfUsers.id}`}>
+            <Link to={`/usersId/${listOfUsers.id}`}>
               <img src={listOfUsers.avatarUrl} alt="usersProfileImages" />
               <h2>{listOfUsers.name}</h2>
               <h3>{listOfUsers.age}</h3>
@@ -46,11 +46,11 @@ const Homegrid = () => {
         ))}
       </AllImages>
     </Wrapper>
-  )
+  );
 };
 
 const Wrapper = styled.div`
-width: var(--max-content-width);
+  width: var(--max-content-width);
 `;
 
 const AllImages = styled.ul`
@@ -61,7 +61,7 @@ const AllImages = styled.ul`
     padding: 2px;
   }
   & img {
-    width:  300px;
+    width: 300px;
     height: 300px;
     object-fit: cover;
     /* width: 400px;
@@ -72,7 +72,6 @@ const AllImages = styled.ul`
       transition: all 0.1s ease;
     }
   }
-  `;
-
+`;
 
 export default Homegrid;
