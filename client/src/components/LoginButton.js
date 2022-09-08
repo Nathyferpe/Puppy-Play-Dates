@@ -1,16 +1,18 @@
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import "./cssAuth0button.css";
 
 const LoginButton = () => {
-    const {loginWithRedirect, isAuthenticated } = useAuth0()
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
 
-        return (
-            !isAuthenticated && (
-                <button className="btn" onClick={() => loginWithRedirect()}>
-                    Sign In
-                </button>
-            )
-        )
-    }
+  return (
+    !isAuthenticated && (
+      <button className="btn" onClick={() => loginWithRedirect()}>
+        Sign In
+      </button>
+    )
+  );
+};
 
-    export default LoginButton;
+// https://auth0.com/blog/complete-guide-to-react-user-authentication/
+
+export default LoginButton;
