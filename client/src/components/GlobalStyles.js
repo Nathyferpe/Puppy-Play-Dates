@@ -96,7 +96,10 @@ button {
     width: 100%;
 }
 
-
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
 
 h2 {
   color: #2f3640;
@@ -105,11 +108,20 @@ h2 {
  justify-content: center;
 
 }
-h3,
-label {
+h3 {
  color: #2f3640;
  margin-bottom: 25px;
 }
+
+
+
+label {
+ font-weight: bold;
+ color: #2f3640;
+ margin-bottom: 3px;
+ margin-top: 15px;
+}
+
 p,
 a,
 li,
@@ -127,5 +139,6 @@ input {
     border: 2px solid var(--color-blueberry-soda);
     border-radius: 4px;
     padding: 0 12px;
+    width:100%;
   }
 `;
