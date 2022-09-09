@@ -157,13 +157,13 @@
         },
         {
         "id": "1021",
-        "name": "Trixie",
+        "name": "Pedro",
         "age": "2 years old",
-        "breed": "pincher",
+        "breed": "unknown",
         "description": "She is a runner. She loves to run with other dog at the park.",
         "friends": ["1019", "1020", "1018"],
-        "avatarUrl": "/images/profile-pics/Trixie.jpeg",
-        "email": "trixiethecute@puppies2gether.com",
+        "avatarUrl": "/images/profile-pics/Pedro.jpeg",
+        "email": "pedrothecute@puppies2gether.com",
         "password" : "cute123",
         "friendRequest" : [],
         "pendingFriends" : []
