@@ -38,14 +38,12 @@ const ProfilePageCreation = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        // console.log("user longged in");
         localStorage.setItem("email", email);
         history.push(`/profile/${email}`);
       });
   };
 
   return (
-    // <h1 style={{textAlign: 'center'}}> Events - Puppy Play Dates</h1>
     <div>
       <DivWrapper>
         <Article>
@@ -62,10 +60,8 @@ const ProfilePageCreation = () => {
               Create your dog profile
             </h2>
             <h3 style={{ marginTop: "20px", lineHeight: "1.2" }}>
-              Please create the Profile of your dog. We are waiting to connect
-              with you. You have to sign up or login to be able to create your
-              dog's profile. Click on the "Sign In" button and then you are
-              ready to make new friends.
+              Please create the Profile of your dog! Click on the "Sign In"
+              button and then you are ready to make new friends.
             </h3>
             <form onSubmit={handleSubmit}>
               <div ClassName="form-group">
@@ -138,7 +134,12 @@ const ProfilePageCreation = () => {
                 <button type="submit" className="global-btn">
                   Create Profile
                 </button>
-                <p>Already registered {""} login?</p>
+                <h3 style={{ marginBottom: "0px" }}>
+                  If you have a profile click on "profile" button to continue.
+                </h3>
+                <button type="submit" className="global-btn">
+                  My Profile
+                </button>
               </div>
 
               {/* {flag && (
@@ -167,7 +168,7 @@ const DivWrapper = styled.div`
 const Article = styled.article`
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 120px;
 `;
 
 const FormUser = styled.div`
