@@ -25,8 +25,7 @@ const Homepage = () => {
                 padding: "0 0 40px 0",
               }}
             >
-              {" "}
-              Welcome to Puppy Play Connect{" "}
+              Welcome to Puppy Play Connect
             </h1>
             <div style={{ display: "flex", width: "40vw" }}>
               <h2 style={{ color: "#8c7ae6" }}>
@@ -63,39 +62,36 @@ const TextWrapper = styled.div`
   padding-bottom: 250px;
   padding-left: 100px;
   display: flex;
-  /* flex-wrap: wrap; */
   justify-content: left;
   width: 70vw;
-  //border removed:
-  /* border: white 2px solid; */
 `;
 
-// const StyledNavLink = styled(Link)`
-//   background: var(--color-selective-yellow);
-//   border: 1px solid transparent;
-//   border-radius: 4px;
-//   color: #4834d4;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   font-family: var(--font-heading);
-//   font-size: 18px;
-//   height: 42px;
-//   margin: 40px 0 40px 0;
-//   /* padding: 0 60px; */
-//   width: 190px;
-//   text-decoration: none;
-//   transition: all ease 400ms;
+const StyledNavLink = styled(Link)`
+  background: var(--color-selective-yellow);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #4834d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  height: 42px;
+  margin: 40px 0 40px 0;
+  /* padding: 0 60px; */
+  width: 190px;
+  text-decoration: none;
+  transition: all ease 400ms;
 
-//   &:disabled {
-//     cursor: not-allowed;
-//     opacity: 0.5;
-//   }
-//   &:hover {
-//     background: var(--color-alabama-crimson);
-//     color: var(--color-selective-yellow);
-//     border-color: var(--color-selective-yellow);
-//   }
-//   `;
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  &:hover {
+    background: var(--color-alabama-crimson);
+    color: var(--color-selective-yellow);
+    border-color: var(--color-selective-yellow);
+  }
+`;
 
 export default Homepage;

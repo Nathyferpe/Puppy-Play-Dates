@@ -48,12 +48,12 @@ const HomePageEventSection = () => {
             <div
               style={{
                 display: "flex",
-                width: "40vw",
+                width: "30vw",
                 flexDirection: "column",
               }}
             >
               <h2 style={{ color: "#8c7ae6" }}>
-                3 Events in the upcoming days.
+                3 Events in the upcoming days...
               </h2>
 
               <h2 style={{ color: "#8c7ae6", marginTop: "40px" }}>
@@ -73,19 +73,17 @@ const HomePageEventSection = () => {
                         marginTop: "40px",
                         flexDirection: "row",
                         alignItems: "center",
-                        justifyContent: "center",
-                        alignContent: "center",
                       }}
                     >
                       <img
-                        style={{ width: "70px", margin: "0 20px 10px 0" }}
+                        style={{ width: "100px", margin: "0 20px 10px 0" }}
                         src={PPCEvents}
                         alt="LogoEvents"
                       />
                       <h3 style={{ color: "#8c7ae6", margin: "0 20px 0 10px" }}>
                         {element.eventName}
                       </h3>
-                      <h3 style={{ color: "#8c7ae6", margin: "0 20px 0 10px" }}>
+                      <h3 style={{ color: "#fdbb01", margin: "0 20px 0 10px" }}>
                         {element.eventPlace}
                       </h3>
                       <h3 style={{ color: "#ffffff", margin: "0 20px 0 10px" }}>
@@ -120,15 +118,11 @@ const Banner = styled.div`
 `;
 
 const TextWrapper = styled.div`
-  /* border: solid #8c7ae6 5px; */
   padding-top: 135px;
-  /* padding-bottom: 250px; */
   padding-left: 100px;
   display: flex;
-  /* flex-wrap: wrap; */
   justify-content: left;
   width: 70vw;
-  /* border: white 2px solid; */
 `;
 
 const StyledNavLink = styled(Link)`
