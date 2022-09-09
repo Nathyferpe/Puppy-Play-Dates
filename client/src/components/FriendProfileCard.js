@@ -16,18 +16,15 @@ const FriendProfile = ({ friendId }) => {
       });
   }, []);
 
-  // console.log(id);
-  // return <div>{id}</div>;
-
   // const handleClick = () => {
-  //   history.push(`/profile/${id}`);
+  //   history.push(`/usersId/${friendId}`);
   // };
 
   if (friend) {
     return (
       <>
         <UserFrame /*onClick={() => handleClick()}*/>
-          <div>hello</div>
+          {/* <div>hello</div> */}
           <UserImg src={friend.avatarUrl} />
           <NameDisplay>{friend.name}</NameDisplay>
         </UserFrame>
@@ -40,29 +37,32 @@ const FriendProfile = ({ friendId }) => {
 
 const NameDisplay = styled.span`
   font-family: sans-serif;
-  font-size: 15px;
-  margin-top: -18px;
+  font-size: 25px;
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: #ffffff;
   opacity: 0.7;
+  padding: 2px;
+  color: #4834d4;
+  font-weight: 900;
 `;
 
 const UserFrame = styled.span`
-  margin: 10px;
-  height: 120px;
-  width: 120px;
-  /* box-shadow: 0px 0px 10px 1px lightgray; */
-  transition: 0.3s;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 1px lightgray;
+  transition: 0.6s;
   &:hover {
-    box-shadow: 0px 0px 2px 2px var(--primary-color);
+    box-shadow: 0px 0px 3px 3px #8c7ae6;
   }
 `;
 
 const UserImg = styled.img`
-  height: 100%;
-  width: auto;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: auto;
+  border-radius: 20px;
 `;
 
 export default FriendProfile;
