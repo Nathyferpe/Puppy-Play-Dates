@@ -4,6 +4,8 @@ import styled from "styled-components";
 import SubNav from "./SubNav";
 import "./cssAuth0button.css";
 import FriendProfileCard from "./FriendProfileCard";
+import ButtonAddMeAsFriend from "./ButtonAddMeAsFriend";
+import ButtonReject from "./ButtonReject";
 
 const ProfilePage = () => {
   const [currentUser, setCurrentUser] = useState([]);
@@ -54,17 +56,51 @@ const ProfilePage = () => {
           </p> */}
         </Wrapper>
       </Container>
-      <FriendsList>
-        <>
-          {currentUser?.friends?.length > 0 &&
-            currentUser.friends.map((friendId) => {
-              return <FriendProfileCard friendId={friendId} />;
-            })}
-        </>
-      </FriendsList>
-      <FriendRequest>
-        <div>{currentUser.friendRequest}</div>
-      </FriendRequest>
+      <div style={{ background: "#e5e1ed" }}>
+        <h2 style={{ margin: "0 0 0 20px", color: "#8c7ae6" }}>
+          My Furry Friends
+        </h2>
+        <FriendsList>
+          <>
+            {currentUser?.friends?.length > 0 &&
+              currentUser.friends.map((friendId) => {
+                return <FriendProfileCard friendId={friendId} />;
+              })}
+          </>
+        </FriendsList>
+        <h2 style={{ margin: "0 0 0 20px", color: "#8c7ae6" }}>
+          New Friend Request
+        </h2>
+        <NewFriendRequest>
+          <>
+            {currentUser?.friendRequest?.length > 0 &&
+              currentUser.friendRequest.map((friendId) => {
+                return <FriendProfileCard friendId={friendId} />;
+              })}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <ButtonAddMeAsFriend></ButtonAddMeAsFriend>
+              <ButtonReject></ButtonReject>
+            </div>
+          </>
+        </NewFriendRequest>
+        <h2 style={{ margin: "0 0 0 20px", color: "#8c7ae6" }}>
+          Requests Sent to
+        </h2>
+        <PendingFriends>
+          <>
+            {currentUser?.pendingFriends?.length > 0 &&
+              currentUser.pendingFriends.map((friendId) => {
+                return <FriendProfileCard friendId={friendId} />;
+              })}
+          </>
+        </PendingFriends>
+      </div>
     </>
   );
 };
@@ -78,13 +114,9 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  /* top: 600px; */
-  /* margin-left: 40px; */
-  /* left: 600px; */
   flex-direction: column;
   display: flex;
   align-items: center;
-  /* margin-left: auto; */
   margin-top: 50px;
   margin-right: auto;
 
@@ -98,19 +130,8 @@ const Wrapper = styled.div`
 `;
 
 const FriendsList = styled.div`
-  /* position: absolute; */
-  top: 700px;
-  left: 320px;
   display: flex;
   align-items: center;
-  /* width: 60vw; */
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--primary-color);
-  & p {
-    font-family: var(--heading-font-family);
-    color: var(--primary-color);
-    font-size: 1.2rem;
-  }
 `;
 
 const FriendsImgs = styled.img`
@@ -119,7 +140,12 @@ const FriendsImgs = styled.img`
   object-fit: cover;
 `;
 
-const FriendRequest = styled.div`
+const NewFriendRequest = styled.div`
+  width: 100%;
+  display: flex;
+`;
+
+const PendingFriends = styled.div`
   width: 100%;
   display: flex;
 `;
