@@ -94,8 +94,7 @@ const Wrapper = styled.div`
 `;
 
 const FriendsList = styled.div`
-  /* position: absolute; */
-  background-color: grey;
+  /* background-color: grey; */
   margin-top: 40px;
   margin-bottom: 40px;
   display: flex;
