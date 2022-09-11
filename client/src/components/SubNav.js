@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import GlobalStyles from "./GlobalStyles";
 import { Link, useHistory } from "react-router-dom";
 
@@ -12,12 +12,12 @@ const SubNav = () => {
 
   return (
     <div style={{ margin: "auto" }}>
-      <Link
+      {/* <Link
         to={`/profile/${email}`}
         style={{ display: "flex", justifyContent: "center" }}
       >
         <button style={{ width: "200px" }}>My Profile</button>
-      </Link>
+      </Link> */}
       <Link to="/events" style={{ display: "flex", justifyContent: "center" }}>
         <button to="/events" style={{ width: "200px" }}>
           Events
