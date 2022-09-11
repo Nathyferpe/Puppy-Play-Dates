@@ -2,10 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import doglineupbanner from "../assets/Global-images/doglineupbanner.jpeg";
 import { useParams } from "react-router-dom";
-// import { HomeGridContext } from "./HomeGridContext";
+import DogsGrid from "./GridHomePage/DogsGrid";
+import EventPageEventSectionSignup from "./EventPageEventSectionSignup";
 
 const Events = () => {
-  //   const data = useContext(HomeGridContext);
   const [events, setEvents] = useState([]);
   const { id } = useParams();
 
@@ -19,33 +19,12 @@ const Events = () => {
       });
   }, [id]);
 
-  //   console.log("events", events);
+  console.log("events", events);
 
   return (
     <div>
-      <Banner>
-        <h1
-          style={{
-            textAlign: "center",
-            color: "white",
-            padding: "80px 0 100px 0",
-          }}
-        >
-          Events
-        </h1>
-        <h2
-          style={{
-            textAlign: "left",
-            color: "white",
-            padding: "40px 0 40px 40px",
-          }}
-        >
-          Upcoming events...
-        </h2>
-        <WrapperEvents>
-          <img></img>
-        </WrapperEvents>
-      </Banner>
+      <EventPageEventSectionSignup />
+      <DogsGrid></DogsGrid>
     </div>
   );
 };
