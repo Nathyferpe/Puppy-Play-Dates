@@ -6,23 +6,10 @@ import { Link } from "react-router-dom";
 
 const Homegrid = () => {
   const data = useContext(HomeGridContext);
-
   // i need the users data (Coming form HomeGridContext):
   const { users } = data;
-  // const [users, setUsers] = useState([])
 
-  //Friends
-  // const [friendIds, setFriendIds] = useState([])
-
-  // I Passed the hook to Homegrid context to have access to it:
-  // useEffect(() => {
-  //   fetch(`/api/users/`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //         setUsers(data.data)
-  //       console.log(data);
-  //     });
-  // }, []);
+  // I Passed the hook useEffect to Homegrid context to have access to it:
 
   console.log("users", users);
   return (
@@ -39,9 +26,6 @@ const Homegrid = () => {
               <h2>{listOfUsers.name}</h2>
               <h3>{listOfUsers.age}</h3>
             </Link>
-            {/* <div style={{display: "flex", justifyContent: "center"}}>
-                <button style={{width: "200px"}}>Friend me</button>
-            </div> */}
           </li>
         ))}
       </AllImages>
