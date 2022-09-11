@@ -17,7 +17,6 @@ const { users } = require("./users.json");
 const { events } = require("./events.json");
 
 // -------------------------------------------GET all users-----------------------------------------------------//
-// ---------------------I need to get all the users to populate on the collection/ home page --------------------//
 
 const getAllUsersHandle = async (req, res) => {
   console.log("hello");
@@ -92,6 +91,7 @@ const addUserHandle = async (req, res) => {
     friends: [],
     pendingFriends: [],
     friendRequest: [],
+    avatarUrl: `/images/profile-pics/${avatarUrl}`,
   };
 
   console.log("userProfile ", userProfile);
@@ -148,15 +148,16 @@ const userLoginHandle = async (req, res) => {
   );
   console.log("user exist");
 
-  // res.json({
-  //     email,
-  //     password,
-  //     name
-  // })
+  res.json({
+    email,
+    password,
+    name,
+  });
 
-  // const userProfileLogin = {
-  //     id: uuidv4(), ...req.body
-  // };
+  const userProfileLogin = {
+    id: uuidv4(),
+    ...req.body,
+  };
 
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();
@@ -266,9 +267,12 @@ const gettingFriendRequestFriendshipAcepted = async (req, res) => {
   const db = client.db("puppyplaydates");
   const possibleFriend = await db.collection("users").findOne({ id: friendId });
   possibleFriend.friends.push(userId);
+  console.log(" possible friend request", possibleFriend.friendsRequest);
   const newFriendRequestArray = possibleFriend.friendRequest.filter(
     (id) => id !== userId
   );
+
+  console.log("new friend array", newFriendRequestArray);
 
   const filterOfFriends = { id: friendId };
   const updateDocFriendRequest = {
@@ -281,6 +285,11 @@ const gettingFriendRequestFriendshipAcepted = async (req, res) => {
   await db
     .collection("users")
     .updateOne(filterOfFriends, updateDocFriendRequest);
+  const friendAcceptUserObject = await db
+    .collection("users")
+    .findOne(filterOfFriends);
+  // user1 need to find the user2 id and push the user2id into the user1 friends array
+  //remember the users2 id is in the "pending friends" Note: filter by id maybe??
 
   const acceptedFriend = await db.collection("users").findOne({ id: userId });
   acceptedFriend.friends.push(friendId);
@@ -288,7 +297,7 @@ const gettingFriendRequestFriendshipAcepted = async (req, res) => {
     (id) => id !== friendId
   );
 
-  // update the the document for user number 1
+  // update the the document for user number 1.
 
   const filterOfNewFriends = { id: userId };
   const updateDocacceptFriendRequest = {
@@ -305,13 +314,17 @@ const gettingFriendRequestFriendshipAcepted = async (req, res) => {
     .updateOne(filterOfNewFriends, updateDocacceptFriendRequest);
 
   client.close();
-
+  const firendRequewstUserObject = await db
+    .collection("users")
+    .findOne(filterOfNewFriends);
   // add both users in the response object .
 
   if (possibleFriend && acceptedFriend) {
-    return res
-      .status(200)
-      .json({ status: 200, data: possibleFriend, acceptedFriend });
+    return res.status(200).json({
+      status: 200,
+      data: { firendRequewstUserObject, friendAcceptUserObject },
+      acceptedFriend,
+    });
   } else {
     return res.status(404).json({ status: 404, message: "no data" });
   }

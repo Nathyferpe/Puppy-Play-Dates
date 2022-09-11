@@ -126,7 +126,11 @@ const ProfilePageCreation = () => {
                   type="file"
                   ClassName="form-control"
                   placeholder="Upload the Picture of your dog."
-                  onChange={(ev) => setAvatarUrl(ev.target.value)}
+                  onChange={(ev) => {
+                    console.log(ev.target.files[0].name);
+                    setAvatarUrl(ev.target.files[0].name);
+                  }}
+                  // onChange={(ev) => setAvatarUrl(ev.target.value)}
                   required
                 />
               </div>
@@ -172,7 +176,7 @@ const Article = styled.article`
 `;
 
 const FormUser = styled.div`
-  border: 3px solid #ebdceb;
+  border: 3px solid #ffffff;
   border-radius: 4px;
   padding: 30px;
   width: 400px;
@@ -187,7 +191,7 @@ const Banner = styled.div`
   max-width: 25rem;
   /* position: absolute; */
   top: 3.125rem;
-  border: 3px solid #ebdceb;
+  border: 3px solid #ffffff;
   text-align: center;
   display: flex;
   flex-direction: column;
