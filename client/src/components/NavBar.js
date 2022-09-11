@@ -38,9 +38,7 @@ const NavBar = () => {
       <div style={{ marginLeft: "80px" }}>
         <LoginButton />
         <LogoutButton />
-        {/* { isAuthenticated && ( 
-                <Homepage/>  
-                )} */}
+        {/* {isAuthenticated && <Homepage />} */}
       </div>
     </Wrapper>
   );
@@ -76,33 +74,5 @@ const Nav = styled.nav`
   justify-content: flex-end;
   align-items: center;
 `;
-
-// const StyledNavLink = styled(Link)`
-//   background: var(--color-selective-yellow);
-//   border: 1px solid transparent;
-//   border-radius: 4px;
-//   color: #4834d4;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   font-family: var(--font-heading);
-//   font-size: 18px;
-//   height: 42px;
-//   margin: 0 0 0 160px;
-//   /* padding: 0 60px; */
-//   width: 100%;
-//   text-decoration: none;
-//   transition: all ease 400ms;
-
-//   &:disabled {
-//     cursor: not-allowed;
-//     opacity: 0.5;
-//   }
-//   &:hover {
-//     background: var(--color-alabama-crimson);
-//     color: var(--color-selective-yellow);
-//     border-color: var(--color-selective-yellow);
-//   }
-// `;
 
 export default NavBar;
