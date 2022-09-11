@@ -162,7 +162,7 @@
         "breed": "unknown",
         "description": "She is a runner. She loves to run with other dog at the park.",
         "friends": ["1019", "1020", "1018"],
-        "avatarUrl": "/images/profile-pics/Pedro.jpeg",
+        "avatarUrl": "/images/profile-pics/Pedro.jpg",
         "email": "pedrothecute@puppies2gether.com",
         "password" : "cute123",
         "friendRequest" : [],
