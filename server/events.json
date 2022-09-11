@@ -6,7 +6,8 @@
         "eventDate": "1st of October 2022",
         "eventPlace": "Parc Villeray dog park",
         "address": "1250 Rue Jarry E, Montréal, QC H2P 1W",
-        "time" : "16:30"
+        "time" : "16:30",
+        "attendance": ["1024" , "1008", "1007"]
         },
         {
         "id": "02",
@@ -15,7 +16,8 @@
         "eventDate": "September 18th, 2022",
         "eventPlace": "Parc Jarry dog park",
         "address": "1250 Rue Jarry E, Montréal, QC H2P 1W",
-        "time" : "From 11:00 to 18:30"
+        "time" : "From 11:00 to 18:30",
+        "attendance": ["1014" , "1016"]
         },
         {
         "id": "03",
@@ -24,6 +26,7 @@
         "eventDate": "October 22, 2022",
         "eventPlace": "Parc La Fontaine dog park",
         "address": "3410 Av. Émile-Duployé, Montréal, QC H2L 3A7",
-        "time" : "15:30"
+        "time" : "15:30",
+        "attendance": ["1020"]
     }
 ]
