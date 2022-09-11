@@ -65,6 +65,9 @@ const App = () => {
             <Route exact path="/events">
               <Events evets={events} setEvents={setEvents} />
             </Route>
+            <Route exact path="/events/:id">
+              <Events evets={events} setEvents={setEvents} />
+            </Route>
             <Route exact path="/usersId/:id">
               <ProfileFriend />
             </Route>
