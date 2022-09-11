@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import ButtonFriendme from "./ButtonFriendMe";
 import FriendProfileCard from "./FriendProfileCard";
+import MyProfileCta from "./MyProfileCta";
 
 const ProfileFriend = () => {
   const [currentUser, setCurrentUser] = useState([]);
@@ -29,6 +30,7 @@ const ProfileFriend = () => {
 
   return (
     <Container>
+      <MyProfileCta />
       <Wrapper>
         <img src={currentUser.avatarUrl} alt="possible friend profile" />
         <p
@@ -66,10 +68,6 @@ const Container = styled.div`
   background: #e5e1ed;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid purple;
-  width: 600px;
-  height: 600px; */
-  /* border-radius: 50%; */
 `;
 
 const Wrapper = styled.div`
@@ -77,12 +75,8 @@ const Wrapper = styled.div`
   color: black;
   display: flex;
   align-items: center;
-  /* top: 600px;
-  left: 600px;
-  display: flex;
-  align-items: center; */
+
   margin-top: 50px;
-  /* margin-right: auto; */
 
   & img {
     width: 500px;
@@ -94,13 +88,12 @@ const Wrapper = styled.div`
 `;
 
 const FriendsList = styled.div`
-  /* background-color: grey; */
   margin-top: 40px;
   margin-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 60vw; */
+
   padding-bottom: 10px;
   border-bottom: 2px solid var(--primary-color);
   & p {
