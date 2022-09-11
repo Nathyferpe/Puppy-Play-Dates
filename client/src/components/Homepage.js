@@ -4,9 +4,11 @@ import styled from "styled-components";
 import doglineupbanner from "../assets/Global-images/doglineupbanner.jpeg";
 import { Link } from "react-router-dom";
 import HomePageEventSection from "./HomePageEventSection";
-// import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Homepage = () => {
+  const { user, isAuthenticated } = useAuth0();
+
   return (
     <div>
       <Banner>
@@ -34,7 +36,14 @@ const Homepage = () => {
               </h2>
             </div>
             <div>
-              {/* <StyledNavLink to="/account"> Create a Profile </StyledNavLink> */}
+              {isAuthenticated && (
+                <>
+                  <StyledNavLink to="/account">Create a Profile</StyledNavLink>
+                  <StyledNavLink to="profile/${email}">
+                    My Profile
+                  </StyledNavLink>
+                </>
+              )}
             </div>
           </div>
         </TextWrapper>
