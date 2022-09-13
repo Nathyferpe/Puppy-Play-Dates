@@ -3,12 +3,14 @@ import { useRef } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const ProfilePageCreation = () => {
+  const { user } = useAuth0();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [age, setAge] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(user.email);
   const [breed, setBreed] = useState("");
   const [password, setPassword] = useState("");
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -38,8 +40,10 @@ const ProfilePageCreation = () => {
     })
       .then((res) => res.json())
       .then((json) => {
-        localStorage.setItem("email", email);
-        history.push(`/profile/${email}`);
+        console.log(json);
+        localStorage.setItem("email", json.data.email);
+        localStorage.setItem("id", json.data.id);
+        history.push(`/profile/${json.data.email}`);
       });
   };
 
@@ -75,7 +79,7 @@ const ProfilePageCreation = () => {
                   required
                 />
               </div>
-              <div ClassName="form-group">
+              {/* <div ClassName="form-group">
                 <label style={{ display: "flex" }}>My Email</label>
                 <input
                   style={{ display: "flex" }}
@@ -85,7 +89,7 @@ const ProfilePageCreation = () => {
                   onChange={(ev) => setEmail(ev.target.value)}
                   required
                 />
-              </div>
+              </div> */}
               <div ClassName="form-group">
                 <label style={{ display: "flex" }}>Description</label>
                 <input
@@ -139,9 +143,13 @@ const ProfilePageCreation = () => {
                   Create Profile
                 </button>
                 <h3 style={{ marginBottom: "0px" }}>
-                  If you have a profile click on "profile" button to continue.
+                  If you have a profile click on "Continue" button to continue.
                 </h3>
-                <button type="submit" className="global-btn">
+                <button
+                  to="/account/login"
+                  type="submit"
+                  className="global-btn"
+                >
                   My Profile
                 </button>
               </div>
