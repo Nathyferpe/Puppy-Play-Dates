@@ -138,49 +138,24 @@ const getAllEvents = async (req, res) => {
 
 //------------------------------------------------------------Authentication login ----------------------------------------------//
 
-//FIX THE END POINT!!!
-
-const userLoginHandle = async (req, res) => {
-  const { email, password } = req.body;
-
-  const foundUser = users.find(
-    (user) => user.email === email || user.password === password
-  );
-  console.log("user exist");
-
-  res.json({
-    email,
-    password,
-    name,
-  });
-
-  const userProfileLogin = {
-    id: uuidv4(),
-    ...req.body,
-  };
+const verifyUserHandle = async (req, res) => {
+  const { email } = req.params;
 
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();
   const db = client.db("puppyplaydates");
-  const user = await db
-    .collection("users")
-    .findOne({ email: email }, { password: password });
-
-  if (user) {
-    console.log("user found");
-  }
+  const user = await db.collection("users").findOne({ email });
 
   console.log(user);
   client.close();
 
   try {
-    if (user === user.password && password === user.password) {
-      return res.status(200).json({ status: 200, data: userProfileLogin });
-    } else {
-      return res.status(404).json({ status: 404, message: "no data" });
-    }
+    return res
+      .status(200)
+      .json({ status: 200, data: user || "user not found" });
   } catch (err) {
     console.log(err);
+    return res.status(404).json({ status: 404, message: "no data" });
   }
 };
 
@@ -339,7 +314,7 @@ module.exports = {
   getUserByEmailHandle,
   getUserByIdHandle,
   addUserHandle,
-  userLoginHandle,
+  verifyUserHandle,
   handleRequestFriendship,
   gettingFriendRequestFriendshipAcepted,
 };
