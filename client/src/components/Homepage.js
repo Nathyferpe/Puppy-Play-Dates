@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // import DogsGrid from "./GridHomePage/DogsGrid";
 import doglineupbanner from "../assets/Global-images/doglineupbanner.jpeg";
@@ -8,6 +8,35 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Homepage = () => {
   const { user, isAuthenticated } = useAuth0();
+  const [isfistTimeUser, setIsfirsttimeuser] = useState();
+
+  // console.log({ user });
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetch(`/api/users/login/${user.email}`)
+        .then((res) => res.json())
+        .then((json) => {
+          console.log(json);
+          if (json.data.email) {
+            console.log("hello");
+            localStorage.setItem("email", json.data.email);
+            localStorage.setItem("id", json.data.id);
+            setIsfirsttimeuser(false);
+          } else {
+            setIsfirsttimeuser(true);
+          }
+          console.log(json.user);
+        });
+    }
+  }, [isAuthenticated]);
+
+  console.log("isfirsttimeuser", isfistTimeUser);
+
+  // if isAuthenticated is true then make a fetch to the backend and check if this user exist in the database using their email
+
+  // 1. the user exist -> show the go to my profile button
+  // 2. the user does not exist -> show create profile button
 
   return (
     <div>
@@ -25,6 +54,7 @@ const Homepage = () => {
                 textAlign: "center",
                 color: "white",
                 padding: "0 0 40px 0",
+                fontSize: "50px",
               }}
             >
               Welcome to Puppy Play Connect
@@ -36,13 +66,15 @@ const Homepage = () => {
               </h2>
             </div>
             <div>
-              {isAuthenticated && (
+              {isAuthenticated && isfistTimeUser && (
                 <>
                   <StyledNavLink to="/account">Create a Profile</StyledNavLink>
-                  <StyledNavLink to="profile/${email}">
-                    My Profile
-                  </StyledNavLink>
                 </>
+              )}
+              {isAuthenticated && !isfistTimeUser && (
+                <StyledNavLink to={`/profile/${user.email}`}>
+                  My Profile
+                </StyledNavLink>
               )}
             </div>
           </div>
