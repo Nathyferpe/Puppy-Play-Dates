@@ -28,8 +28,6 @@ const ProfilePage = () => {
 
   console.log("email", email);
 
-  // console.log(currentUser.friendRquest);
-
   return (
     <>
       <Container>
@@ -38,20 +36,21 @@ const ProfilePage = () => {
           <img src={currentUser.avatarUrl} alt="user's profile" />
           <p
             style={{
-              fontSize: "50px",
+              fontSize: "60px",
               margin: "20px 0 20px 0",
-              fontsize: "5px",
               color: "#dd216b",
               fontWeight: "900",
             }}
           >
             {currentUser.name}
           </p>
-          <p className="description-user">{currentUser.description}</p>
-          <p className="description-user">{currentUser.age}</p>
+          <h3 style={{ fontSize: "20px" }} className="description-user">
+            {currentUser.description}
+          </h3>
+          <h3 className="description-user">{currentUser.age}</h3>
         </Wrapper>
       </Container>
-      <div style={{}}>
+      <div>
         <h2 style={{ color: "#8c7ae6", display: "flex", marginTop: "60px" }}>
           My Furry Friends
         </h2>
