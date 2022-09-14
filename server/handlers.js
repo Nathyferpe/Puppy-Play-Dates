@@ -235,14 +235,14 @@ const handleRequestFriendship = async (req, res) => {
 
 const gettingFriendRequestFriendshipAcepted = async (req, res) => {
   const { userId, friendId } = req.params;
+  // console.log("friendId", friendId);
 
-  console.log("friendId", friendId);
   const client = new MongoClient(MONGO_URI, options);
   await client.connect();
   const db = client.db("puppyplaydates");
   const possibleFriend = await db.collection("users").findOne({ id: friendId });
   possibleFriend.friends.push(userId);
-  console.log(" possible friend request", possibleFriend.friendsRequest);
+  // console.log(" possible friend request", possibleFriend.friendsRequest);
   const newFriendRequestArray = possibleFriend.friendRequest.filter(
     (id) => id !== userId
   );
@@ -274,7 +274,7 @@ const gettingFriendRequestFriendshipAcepted = async (req, res) => {
 
   // update the the document for user number 1.
 
-  const filterOfNewFriends = { id: userId };
+  const filterOfNewFriends = { id: friendId };
   const updateDocacceptFriendRequest = {
     $set: {
       friends: acceptedFriend.friends,
@@ -298,7 +298,7 @@ const gettingFriendRequestFriendshipAcepted = async (req, res) => {
     return res.status(200).json({
       status: 200,
       data: { firendRequewstUserObject, friendAcceptUserObject },
-      acceptedFriend,
+      // acceptedFriend,
     });
   } else {
     return res.status(404).json({ status: 404, message: "no data" });
