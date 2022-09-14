@@ -1,18 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { HomeGridContext } from "./HomeGridContext";
+import { useAuth0 } from "@auth0/auth0-react";
 
-const ButtonFriendme = () => {
+const ButtonFriendme = ({ userId }) => {
   const [friendMeButton, setFriendMeButton] = useState(false);
+  const [currentUser, setCurrentUser] = useState([]);
   const history = useHistory();
-  const { friendId, userId } = useParams();
-  // const { userId } = req.params.id;
-  // const { friendId } = req.params.id;
+  const data = useContext(HomeGridContext);
+  const { user, isAuthenticated } = useAuth0();
+
+  const { id } = useParams();
+  console.log("friendId", id);
+  console.log("user Id", userId);
+  // const friendId = id;
+  // console.log("friendId", friendId);
+
   const [friendRequest, setFriendRequest] = useState("");
   const [pendingFriends, setPendingFriends] = useState("");
   const [friends, setFriends] = useState("");
   const [email, setEmail] = useState("");
-  const [id, setId] = useState("");
+  // const [id, setId] = useState("");
 
   const formData = {
     friendRequest,
@@ -22,42 +31,43 @@ const ButtonFriendme = () => {
     id,
   };
 
-  const handleSubmit = (ev) => {
+  const handleClick = (ev) => {
     ev.preventDefault();
+    console.log("It's Britney bitch");
 
-    /// userId & FriendId????
+    // history.push(`/profile/${email}`);
 
-    fetch(`/api/friends/${userId}/${friendId}`, {
-      method: "PATCH",
-      body: JSON.stringify(formData),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((info) => {
-        setFriendMeButton(info.data);
-        history.push(`/profile/${email}`);
+    /// userId & friendId????
 
-        console.log("data", info.data);
-        console.log(formData);
-      });
+    // fetch(`/api/friends/${userId}/${friendId}`, {
+    //   method: "PATCH",
+    //   body: JSON.stringify(formData),
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((info) => {
+    //     setFriendMeButton(info.data);
+    //     // history.push(`/profile/${email}`);
+
+    //     console.log("data", info.data);
+    //     console.log(formData);
+    //   });
   };
 
   // console.log(json.data);
 
-  // const handleClick = () => {
-  //   history.push(`/profile/${id}`);
-  // };
-
   return (
-    <form
-      onSubmit={handleSubmit}
+    <div
+      onSubmit={handleClick}
       style={{ display: "flex", justifyContent: "center" }}
     >
-      <button style={{ width: "200px" }}>Friend me</button>
-    </form>
+      <button onClick={handleClick} style={{ width: "200px" }}>
+        Friend me
+      </button>
+    </div>
   );
 };
 
