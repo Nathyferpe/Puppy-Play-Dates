@@ -1,13 +1,27 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import ButtonFriendme from "./ButtonFriendMe";
 import FriendProfileCard from "./FriendProfileCard";
+import { HomeGridContext } from "./HomeGridContext";
 import MyProfileCta from "./MyProfileCta";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const ProfileFriend = () => {
+  const { user, isAuthenticated } = useAuth0();
   const [currentUser, setCurrentUser] = useState([]);
   const { id } = useParams();
+  const friendId = id;
+  const userId = localStorage.getItem("email");
+
+  // const { currentUser: userId } = useContext(HomeGridContext);
+
+  console.log({ friendId });
+  console.log({ userId });
+
+  //this is for the profile button:
+  // const history = useHistory();
+  // const { email } = useParams();
 
   //for friends
   const [friends, setFriends] = useState([]);
@@ -21,10 +35,11 @@ const ProfileFriend = () => {
 
         console.log("data", info.data);
         console.log("info", info);
+        console.log("data id", info.data.id);
       });
   }, []);
 
-  console.log("id", id);
+  console.log("FriendId", id);
   console.log(currentUser.friends);
   console.log("currentUser", currentUser);
 
@@ -35,24 +50,47 @@ const ProfileFriend = () => {
         <img src={currentUser.avatarUrl} alt="possible friend profile" />
         <p
           style={{
-            fontSize: "50px",
+            fontSize: "60px",
             margin: "20px 0px",
             color: "rgb(221, 33, 107)",
-            fontweight: "900",
+            fontWeight: "900",
           }}
         >
           {currentUser.name}
         </p>
+        <h3
+          style={{
+            color: "rgb(221, 33, 107)",
+            fontSize: "20px",
+          }}
+        >
+          {currentUser.description}
+        </h3>
+        <h3
+          style={{
+            color: "rgb(221, 33, 107)",
+            fontSize: "20px",
+          }}
+        >
+          {currentUser.name} is {currentUser.age}
+        </h3>
+        <h3
+          style={{
+            color: "rgb(221, 33, 107)",
+            fontSize: "20px",
+          }}
+        >
+          {currentUser.breed}
+        </h3>
         {/* <div style={{ display: "flex", justifyContent: "center" }}>
           <button style={{ width: "200px" }}>Friend me</button>
         </div> */}
         <div>
-          <ButtonFriendme />
+          <ButtonFriendme firendId={friendId} userId={userId} />
         </div>
       </Wrapper>
       <div>
         <FriendsList>
-          {/* <FriendProfile /> */}
           {currentUser?.friends?.length > 0 &&
             currentUser.friends.map((friendId) => {
               return <FriendProfileCard friendId={friendId} />;
