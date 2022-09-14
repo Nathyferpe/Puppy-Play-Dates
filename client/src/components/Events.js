@@ -4,6 +4,7 @@ import doglineupbanner from "../assets/Global-images/doglineupbanner.jpeg";
 import { useParams } from "react-router-dom";
 import DogsGrid from "./GridHomePage/DogsGrid";
 import EventPageEventSectionSignup from "./EventPageEventSectionSignup";
+// import ButtonGetEvent from "./ButtonGetEvent";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
