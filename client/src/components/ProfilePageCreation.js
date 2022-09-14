@@ -142,16 +142,16 @@ const ProfilePageCreation = () => {
                 <button type="submit" className="global-btn">
                   Create Profile
                 </button>
-                <h3 style={{ marginBottom: "0px" }}>
+                {/* <h3 style={{ marginBottom: "0px" }}>
                   If you have a profile click on "Continue" button to continue.
-                </h3>
-                <button
+                </h3> */}
+                {/* <button
                   to="/account/login"
                   type="submit"
                   className="global-btn"
                 >
                   My Profile
-                </button>
+                </button> */}
               </div>
 
               {/* {flag && (
