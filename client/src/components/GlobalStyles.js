@@ -70,7 +70,7 @@ export default createGlobalStyle`
   h1 {
   color: #9c88ff;
   font-family: var(--font-heading);
-  font-size: 48px;
+  font-size: 50px;
   text-align: center;
 }
 
