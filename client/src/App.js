@@ -12,6 +12,7 @@ import Homegrid from "./components/Homegrid";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
+import GetOneEvent from "./components/OneEventPage";
 
 const App = () => {
   const { isloading, error } = useAuth0;
@@ -20,13 +21,16 @@ const App = () => {
   const { user, isAuthenticated } = useAuth0();
 
   const [users, setUsers] = useState([]);
-  // const [user, setUser] = useState('')
 
   const [events, setEvents] = useState([]);
+  const [event, setEvent] = useState([]);
+  // const [email, setEmail] = useState("");
 
-  localStorage.setItem("userId", "123");
-  const userId = localStorage.getItem("userId");
-  console.log("user id", userId);
+  // localStorage.setItem("userId", "123");
+  // const userId = localStorage.getItem("userId");
+  // const userId = localStorage.getItem("email", email);
+
+  // console.log("user id", userId);
 
   return (
     <>
@@ -51,7 +55,7 @@ const App = () => {
               <Homepage />
             </Route>
             <Route exact path="/account/login">
-              <LoginPage user={user} users={users} setUsers={setUsers} />
+              <LoginPage /*user={user} users={users} setUsers={setUsers}*/ />
             </Route>
             <Route exact path="/account">
               <ProfilePageCreation />
@@ -66,7 +70,7 @@ const App = () => {
               <Events evets={events} setEvents={setEvents} />
             </Route>
             <Route exact path="/events/:id">
-              <Events evets={events} setEvents={setEvents} />
+              <GetOneEvent evets={event} setEvents={setEvent} />
             </Route>
             <Route exact path="/usersId/:id">
               <ProfileFriend />
