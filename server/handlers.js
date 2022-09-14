@@ -274,11 +274,11 @@ const gettingFriendRequestFriendshipAcepted = async (req, res) => {
 
   // update the the document for user number 1.
 
-  const filterOfNewFriends = { id: friendId };
+  const filterOfNewFriends = { id: userId };
   const updateDocacceptFriendRequest = {
     $set: {
       friends: acceptedFriend.friends,
-      friendRequest: newPendingFriendReadytoBeAcepted,
+      pendingFriends: newPendingFriendReadytoBeAcepted,
     },
   };
 
