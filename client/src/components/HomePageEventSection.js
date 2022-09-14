@@ -80,7 +80,13 @@ const HomePageEventSection = () => {
                         src={PPCEvents}
                         alt="LogoEvents"
                       />
-                      <h3 style={{ color: "#8c7ae6", margin: "0 20px 0 10px" }}>
+                      <h3
+                        style={{
+                          color: "#8c7ae6",
+                          margin: "0 20px 0 10px",
+                          fontSize: "40px",
+                        }}
+                      >
                         {element.eventName}
                       </h3>
                       <h3 style={{ color: "#fdbb01", margin: "0 20px 0 10px" }}>
