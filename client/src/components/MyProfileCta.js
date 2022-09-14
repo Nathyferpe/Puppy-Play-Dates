@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import GlobalStyles from "./GlobalStyles";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 const MyProfileCta = () => {
   const history = useHistory();
   const [currentUser, setCurrentUser] = useState([]);
+  const { email } = useParams();
 
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
 
   //check this in line 17... link not working...:
   // --- `/profile/${email}`--------
