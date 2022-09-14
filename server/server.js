@@ -24,7 +24,7 @@ const {
   getUserByEmailHandle,
   getUserByIdHandle,
   addUserHandle,
-  userLoginHandle,
+  verifyUserHandle,
   getAllEvents,
   handleRequestFriendship,
   gettingFriendRequestFriendshipAcepted,
@@ -51,7 +51,7 @@ app.post("/api/users", addUserHandle);
 
 //------------------- users profile data for login-----------//
 
-app.post("/api/users/login", userLoginHandle);
+app.get("/api/users/login/:email", verifyUserHandle);
 
 //-----------------Get the profile of one friend-----------------------//
 
