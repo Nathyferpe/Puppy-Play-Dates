@@ -11,7 +11,7 @@ class DogsGrid extends Component {
     };
   }
   componentDidMount() {
-    fetch("https://dog.ceo/api/breeds/image/random/12")
+    fetch("https://dog.ceo/api/breeds/image/random/34")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
