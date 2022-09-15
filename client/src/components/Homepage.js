@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 // import DogsGrid from "./GridHomePage/DogsGrid";
 import doglineupbanner from "../assets/Global-images/doglineupbanner.jpeg";
 import { Link } from "react-router-dom";
 import HomePageEventSection from "./HomePageEventSection";
 import { useAuth0 } from "@auth0/auth0-react";
+import { HomeGridContext } from "./HomeGridContext";
 
 const Homepage = () => {
   const { user, isAuthenticated } = useAuth0();
   const [isfistTimeUser, setIsfirsttimeuser] = useState();
+  const { authUser, setAuthUser } = useContext(HomeGridContext);
 
   // console.log({ user });
 
@@ -22,6 +24,7 @@ const Homepage = () => {
             console.log("hello");
             localStorage.setItem("email", json.data.email);
             localStorage.setItem("id", json.data.id);
+            setAuthUser(json.data);
             setIsfirsttimeuser(false);
           } else {
             setIsfirsttimeuser(true);

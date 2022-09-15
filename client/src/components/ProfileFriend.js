@@ -11,6 +11,8 @@ const ProfileFriend = () => {
   const { user, isAuthenticated } = useAuth0();
   const [currentUser, setCurrentUser] = useState([]);
   const { id } = useParams();
+
+  //move context
   const friendId = id;
   const userId = localStorage.getItem("email");
 
@@ -18,6 +20,7 @@ const ProfileFriend = () => {
 
   console.log({ friendId });
   console.log({ userId });
+  console.log("test profile", { userId, friendId });
 
   //this is for the profile button:
   // const history = useHistory();
@@ -39,7 +42,7 @@ const ProfileFriend = () => {
       });
   }, []);
 
-  console.log("FriendId", id);
+  console.log("friendId", id);
   console.log(currentUser.friends);
   console.log("currentUser", currentUser);
 
@@ -86,7 +89,7 @@ const ProfileFriend = () => {
           <button style={{ width: "200px" }}>Friend me</button>
         </div> */}
         <div>
-          <ButtonFriendme firendId={friendId} userId={userId} />
+          <ButtonFriendme friendId={friendId} userId={userId} />
         </div>
       </Wrapper>
       <div>

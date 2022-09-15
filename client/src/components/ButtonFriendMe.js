@@ -4,16 +4,19 @@ import { useParams } from "react-router-dom";
 import { HomeGridContext } from "./HomeGridContext";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const ButtonFriendme = ({ userId }) => {
+const ButtonFriendme = ({ userId, friendId }) => {
   const [friendMeButton, setFriendMeButton] = useState(false);
-  const [currentUser, setCurrentUser] = useState([]);
+  // const [currentUser, setCurrentUser] = useState([]);
   const history = useHistory();
   const data = useContext(HomeGridContext);
   const { user, isAuthenticated } = useAuth0();
 
+  console.log("test button", { userId, friendId });
   const { id } = useParams();
   console.log("friendId", id);
   console.log("user Id", userId);
+  const { authUser } = data;
+  console.log("test authUser", authUser);
   // const friendId = id;
   // console.log("friendId", friendId);
 
@@ -33,7 +36,7 @@ const ButtonFriendme = ({ userId }) => {
 
   const handleClick = (ev) => {
     ev.preventDefault();
-    console.log("It's Britney bitch");
+    console.log("It's Britney b....");
 
     // history.push(`/profile/${email}`);
 

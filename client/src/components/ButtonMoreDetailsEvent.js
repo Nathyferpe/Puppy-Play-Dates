@@ -3,7 +3,7 @@ import { useHistory, useParams, Link } from "react-router-dom";
 
 const ButtonMoreDetailsEvent = () => {
   const history = useHistory();
-  const [addEventButton, setAddEventButton] = useState(false);
+  // const [addEventButton, setAddEventButton] = useState(false);
 
   const { id } = useParams();
 

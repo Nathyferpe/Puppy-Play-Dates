@@ -1,11 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
-// import DogsGrid from "./GridHomePage/DogsGrid";
 import { Link } from "react-router-dom";
 import { HomeGridContext } from "./HomeGridContext";
 import eventBannerHomepage from "../assets/Global-images/eventBannerHomepage.jpg";
 import PPCEvents from "../assets/Global-images/PPCEvents.png";
-// import ButtonGetEvent from "../components/ButtonGetEvent";
 import ButtonMoreDetailsEvent from "./ButtonMoreDetailsEvent";
 
 const EventPageEventSectionSignup = () => {
