@@ -5,10 +5,13 @@ import { HomeGridContext } from "./HomeGridContext";
 import eventBannerHomepage from "../assets/Global-images/eventBannerHomepage.jpg";
 import PPCEvents from "../assets/Global-images/PPCEvents.png";
 import ButtonMoreDetailsEvent from "./ButtonMoreDetailsEvent";
+// import eventAttendanceButton from "./ButtonMoreDetailsEvent";
 
-const EventPageEventSectionSignup = () => {
+const EventPageEventSectionSignup = ({ id }) => {
   const data = useContext(HomeGridContext);
   const [events, setEvents] = useState([]);
+
+  // console.log("event id", id);
 
   // const { events, setEvents } = data;
 
@@ -48,16 +51,6 @@ const EventPageEventSectionSignup = () => {
                 flexDirection: "column",
               }}
             >
-              {/* <h2
-                style={{
-                  color: "#8c7ae6",
-                  //   display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                3 Events in the upcoming days...
-              </h2> */}
-
               <h2
                 style={{
                   color: "#8c7ae6",
@@ -73,15 +66,12 @@ const EventPageEventSectionSignup = () => {
 
                 return (
                   <>
-                    {/* <div style={{ display: "flex", justifyContent: "row" }}> */}
                     <div
                       style={{
                         display: "flex",
                         marginTop: "40px",
                         flexDirection: "row",
                         alignItems: "center",
-                        // marginRight: "250px",
-                        // marginLeft: "150px",
                       }}
                     >
                       <img
@@ -120,9 +110,8 @@ const EventPageEventSectionSignup = () => {
                         {" "}
                         {element.eventDate}
                       </h3>
-                      <ButtonMoreDetailsEvent />
+                      {<ButtonMoreDetailsEvent /*id={id}*/ />}
                     </div>
-                    {/* </div> */}
                   </>
                 );
               })}
@@ -130,7 +119,6 @@ const EventPageEventSectionSignup = () => {
             <div></div>
           </div>
         </TextWrapper>
-        {/* <Collection></Collection> */}
       </Banner>
     </div>
   );

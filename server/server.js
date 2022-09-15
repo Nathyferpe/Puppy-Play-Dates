@@ -28,6 +28,7 @@ const {
   getAllEvents,
   handleRequestFriendship,
   gettingFriendRequestFriendshipAcepted,
+  showArrayEventAttendance,
 } = require("./handlers");
 
 app.use(morgan("tiny"));
@@ -76,9 +77,9 @@ app.patch(
 
 app.get("/api/events/:id", getEventDetails);
 
-// -------------------------------------   Get friends --------------------------------//
+// -------------------------------------   Show event attendance array --------------------------------//
 
-// app.get("/api/users/friends "  , gettingFriendsArray)
+app.get("/api/events-attendance/:eventId/:userId", showArrayEventAttendance);
 
 //----------------------------post/upload img --------------------//
 

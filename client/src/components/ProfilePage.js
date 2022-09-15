@@ -6,11 +6,23 @@ import "./cssAuth0button.css";
 import FriendProfileCard from "./FriendProfileCard";
 import ButtonAddMeAsFriend from "./ButtonAddMeAsFriend";
 import ButtonReject from "./ButtonReject";
+import { HomeGridContext } from "./HomeGridContext";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const ProfilePage = () => {
+  const [authUser, setAuthUser] = useState();
+  const { user, isAuthenticated } = useAuth0();
   const [currentUser, setCurrentUser] = useState([]);
   const [friends, setFriends] = useState([]);
   const { email } = useParams();
+  // const friendId = id;
+  const userId = localStorage.getItem("id");
+
+  //Where is my firend ID??
+
+  // console.log({ friendId });
+  console.log({ userId });
+  // console.log("test profile", { userId, friendId });
 
   useEffect(() => {
     fetch(`/api/users/${email}`)
@@ -27,6 +39,8 @@ const ProfilePage = () => {
   // };
 
   console.log("email", email);
+
+  console.log("CURRENT USER", currentUser);
 
   return (
     <>
@@ -70,7 +84,16 @@ const ProfilePage = () => {
             {currentUser?.friendRequest?.length > 0 && (
               <>
                 {currentUser.friendRequest.map((friendId) => {
-                  return <FriendProfileCard friendId={friendId} />;
+                  return (
+                    <>
+                      <FriendProfileCard friendId={friendId} />
+                      <ButtonAddMeAsFriend
+                        friendId={friendId}
+                        userId={userId}
+                      ></ButtonAddMeAsFriend>
+                      <ButtonReject></ButtonReject>
+                    </>
+                  );
                 })}
                 <div
                   style={{
@@ -78,10 +101,7 @@ const ProfilePage = () => {
                     flexDirection: "column",
                     justifyContent: "center",
                   }}
-                >
-                  <ButtonAddMeAsFriend></ButtonAddMeAsFriend>
-                  <ButtonReject></ButtonReject>
-                </div>
+                ></div>
               </>
             )}
           </>

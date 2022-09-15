@@ -9,11 +9,7 @@ export const HomeGridPageProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState("");
   const [usersInfo, setUsersInfo] = useState([]);
   const [events, setEvents] = useState([]);
-  // const [authUser, setAuthUser] = useState();
-
-  //Ineed a state for the buttons to add friend remove friend and also to subscribe to events
-  // const [friendMeButton, setFriendmeButton] = useState(false);
-  // const [addEventButton, setEventButton] = useState(false);
+  const [authUser, setAuthUser] = useState();
 
   useEffect(() => {
     fetch("/api/users")

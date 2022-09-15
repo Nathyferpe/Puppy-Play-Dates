@@ -26,6 +26,8 @@ const App = () => {
   const [event, setEvent] = useState([]);
   // const [email, setEmail] = useState("");
 
+  // const [friendId, setFriendId] = useState("");
+
   // localStorage.setItem("userId", "123");
   // const userId = localStorage.getItem("userId");
   // const userId = localStorage.getItem("email", email);

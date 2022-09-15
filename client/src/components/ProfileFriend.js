@@ -48,7 +48,7 @@ const ProfileFriend = () => {
 
   return (
     <Container>
-      <MyProfileCta />
+      <MyProfileCta userId={currentUser.id} />
       <Wrapper>
         <img src={currentUser.avatarUrl} alt="possible friend profile" />
         <p
@@ -99,7 +99,7 @@ const ProfileFriend = () => {
               return <FriendProfileCard friendId={friendId} />;
             })}
         </FriendsList>
-        <div>{currentUser.friendRequest}</div>
+        {/* <div>{currentUser.friendRequest}</div> */}
       </div>
     </Container>
   );

@@ -5,7 +5,8 @@ import { Link, useHistory, useParams } from "react-router-dom";
 const MyProfileCta = () => {
   const history = useHistory();
   const [currentUser, setCurrentUser] = useState([]);
-  const { email } = useParams();
+
+  const email = localStorage.getItem("email");
 
   // const [email, setEmail] = useState("");
 

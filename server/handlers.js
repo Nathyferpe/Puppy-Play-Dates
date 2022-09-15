@@ -305,6 +305,42 @@ const gettingFriendRequestFriendshipAcepted = async (req, res) => {
   }
 };
 
+//--------------------------------------------------Show Event attendance list----------------------------------//
+
+const showArrayEventAttendance = async (req, res) => {
+  const { eventId, userId } = req.params;
+  const client = new MongoClient(MONGO_URI, options);
+  await client.connect();
+  const db = client.db("puppyplaydates");
+  const oneEvent = await db.collection("events").findOne({ id: eventId });
+  oneEvent.attendance.push(userId);
+
+  const filter = { id: eventId };
+  const updateDoc = {
+    $set: {
+      attendace: oneEvent.attendance,
+    },
+  };
+
+  console.log("event attendace", oneEvent.attendance);
+  console.log(oneEvent);
+  client.close();
+
+  await db.collection("events").updateOne(filter, updateDoc);
+
+  client.close();
+
+  try {
+    if (oneEvent) {
+      return res.status(200).json({ status: 200, data: oneEvent });
+    } else {
+      return res.status(404).json({ status: 404, message: "no data" });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 //---------------------------------- getting friends users from user's array ----------------------------------//
 
 module.exports = {
@@ -317,4 +353,5 @@ module.exports = {
   verifyUserHandle,
   handleRequestFriendship,
   gettingFriendRequestFriendshipAcepted,
+  showArrayEventAttendance,
 };

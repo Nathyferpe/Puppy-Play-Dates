@@ -10,21 +10,11 @@ const Events = () => {
   const [events, setEvents] = useState([]);
   const { id } = useParams();
 
-  useEffect(() => {
-    fetch(`/api/events/${id}`)
-      .then((res) => res.json())
-      .then((json) => {
-        setEvents(json.data);
-
-        console.log("data", json.data);
-      });
-  }, [id]);
-
   console.log("events", events);
 
   return (
     <div>
-      <EventPageEventSectionSignup />
+      <EventPageEventSectionSignup id={id} />
       <DogsGrid></DogsGrid>
     </div>
   );

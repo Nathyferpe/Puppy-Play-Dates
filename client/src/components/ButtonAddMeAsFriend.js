@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { HomeGridContext } from "./HomeGridContext";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const AddMeAsFriend = ({ userId }) => {
+const AddMeAsFriend = ({ userId, friendId }) => {
   const { user, isAuthenticated } = useAuth0();
   const data = useContext(HomeGridContext);
   const [AddMeAsFriendButton, setAddMeAsFriendButton] = useState(false);
@@ -18,7 +18,7 @@ const AddMeAsFriend = ({ userId }) => {
 
   const { id } = useParams();
   console.log("user Id", userId);
-  // const userId = localStorage.getItem("email");
+  // const userId = localStorage.getItem("id");
 
   const formData = {
     friendRequest,
@@ -29,25 +29,25 @@ const AddMeAsFriend = ({ userId }) => {
   };
 
   const handleClick = (ev) => {
-    ev.preventDefault();
+    // ev.preventDefault();
     console.log("I accept the new friend");
 
-    // fetch(`/api/friends/accept/${userId}/${friendId}`, {
-    //   method: "PATCH",
-    //   body: JSON.stringify(formData),
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((info) => {
-    //     setAddMeAsFriendButton(info.data);
-    //     history.push(`/profile/${email}`);
+    fetch(`/api/friends/accept/${friendId}/${userId}`, {
+      method: "PATCH",
+      body: JSON.stringify(formData),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((info) => {
+        setAddMeAsFriendButton(info.data);
+        // history.push(`/profile/${email}`);
 
-    //     console.log("data", info.data);
-    //     console.log(formData);
-    //   });
+        console.log("data", info.data);
+        console.log(formData);
+      });
   };
 
   return (
