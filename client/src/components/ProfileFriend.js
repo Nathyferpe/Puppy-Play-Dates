@@ -14,7 +14,7 @@ const ProfileFriend = () => {
 
   //move context
   const friendId = id;
-  const userId = localStorage.getItem("email");
+  const userId = localStorage.getItem("id");
 
   // const { currentUser: userId } = useContext(HomeGridContext);
 

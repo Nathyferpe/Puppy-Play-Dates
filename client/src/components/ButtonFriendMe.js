@@ -42,22 +42,22 @@ const ButtonFriendme = ({ userId, friendId }) => {
 
     /// userId & friendId????
 
-    // fetch(`/api/friends/${userId}/${friendId}`, {
-    //   method: "PATCH",
-    //   body: JSON.stringify(formData),
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((res) => res.json())
-    //   .then((info) => {
-    //     setFriendMeButton(info.data);
-    //     // history.push(`/profile/${email}`);
+    fetch(`/api/friends/${userId}/${friendId}`, {
+      method: "PATCH",
+      body: JSON.stringify(formData),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((info) => {
+        setFriendMeButton(info.data);
+        // history.push(`/profile/${email}`);
 
-    //     console.log("data", info.data);
-    //     console.log(formData);
-    //   });
+        console.log("data", info.data);
+        console.log(formData);
+      });
   };
 
   // console.log(json.data);
